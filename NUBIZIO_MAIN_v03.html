@@ -210,31 +210,210 @@
             bottom: 5px;
             left: 667px;
         }
+
         /*-------------- 섹션2 ------------------*/
-        .MD{
-            width: 1280px;
+
+        #section2 {
+            margin-bottom: 400px;
+        }
+        .MD {
             display: flex ;
             flex-direction: row ;
             justify-content: space-around;
-            flex-wrap: wrap ;
-            text-align: center ;
+            flex-wrap: nowrap ;
+            margin: 15px;
         }
         .pop {
-            width: 1280px;
             display: flex ;
             flex-direction: row ;
             justify-content: space-around;
             flex-wrap: wrap ;
+            padding: 10px;
+        }
+        .mditem { 
+            width: 220px ;
+            height: 525px ;
+            text-align: center;
+            /* padding: 0px 9px ; */
+        }
+        .now { 
+            width: 270px;
+        }
+        h1 {
             text-align: center ;
+            height: 60px ;
+            font-size: 28px ;
         }
-        dl img{
-            width: 200px ;
-            height: 300px ;
+        dd {
+            list-style: none ;
+            font-size: 12px ;
+            color: #999999 ;
+            margin: 0;
+        } 
+        .mdimg {
+            width: 220px ;
+            height: 320px ;
         }
-        .size { width: 200px; }
-        .now  { width: 300px; }
-        h1    { text-align: center ;}
-        dd    { text-indent: 0px;}
+        .popimg {
+            width: 270px ;
+            height: 378px ;
+        }
+        .price {
+            font-size: 16px ;
+            font-weight: bold ;
+            color: black ;
+            padding-left: 8px ;
+        }
+        .fttitle {
+            width: 220px;
+            font-size: 15px ;
+            margin: 15px 0px;
+        }
+        .fttitle2 {
+            width: 280px;
+            font-size: 15px ;
+            padding: 12px 0px 15px 0px ;
+        }
+
+        /*------------------ 푸터------------------ */
+
+        footer {
+            font-family:"맑은 고딕";
+            font-size: 12px;
+            color:rgb(151, 150, 150)
+        }
+        .footertop {   
+            display: flex;
+            flex-direction: row ;
+            justify-content: space-between ;
+            align-items: center ;
+            border-top: 1px solid black ;
+            border-bottom: 1px solid rgb(228, 228, 228) ;
+            padding: 10px ;
+            font-family:"맑은 고딕";
+            font-size: 12px;
+            color: #777777 ;
+        }
+        .information {
+            display: flex;
+            flex-direction: row ;
+        }
+        .network {
+            display: flex;
+            flex-direction: row ;
+        }
+        .network img {
+            margin: 7px ;
+        }
+
+        .information li { 
+            padding: 5px ;
+        }
+
+        footer li {
+            list-style: none ;
+            padding-left: 0px ;
+        }
+
+        .talk {
+            display: flex;
+            flex-direction: row ;
+        }
+
+        .ftmiddle {
+            display: flex ;
+            flex-direction: row ;
+            padding-top: 50px ;
+            padding-bottom: 50px ;
+            border-bottom: 1px solid rgb(228, 228, 228) ;
+        }
+
+        .footermiddle01 {
+            padding: 0px 80px 0px 20px ;
+        }
+        .footermiddle02 {
+            padding: 0px 40px ;
+            border-left: 1px solid rgb(228, 228, 228) ;
+        }
+        .footermiddle03 {
+            padding: 0px 40px ;
+            border-left: 1px solid rgb(228, 228, 228) ;
+        }
+        .footermiddle04 {
+            padding: 0px 0px 0px 40px ;
+            border-left: 1px solid rgb(228, 228, 228) ;
+
+        }
+
+
+        .footerlow{
+            display: flex ;
+            flex-direction: row ;
+            justify-content: space-between ;
+            padding: 60px 0px 0px ;
+        }
+
+        .content03 {
+            padding: 0px 0px 0px 20px ;
+        }
+
+        .text01{
+            font-family:"맑은 고딕";
+            font-size: 17px;
+            color: black ;
+            padding-top: 15px ;
+        }
+
+        .title{
+            font-family:"맑은 고딕";
+            font-size: 11px;
+            color: black ;
+            font-weight: bold;
+        }
+        .line{
+            width: 8px ;
+            height: 2px ;
+            background-color: black ;
+            margin-top: 10px ;
+        }
+
+        .footermiddle04 div div button {
+            border: 1px solid rgb(192, 190, 190) ;
+            font-size: 10px ;
+            border-radius: 100px; 
+            width: 50px ;
+            height: 50px ;
+            background-color: white ;
+            margin-top: 13px ;
+        }
+
+        .talkpad {
+            padding-right: 6px;
+        }
+
+        .bank {
+            padding: 13px 0px 18px 0px ;
+        }
+        .sm {
+            padding: 13px 0px 18px 0px ;
+        }
+
+        .return {
+            padding: 13px 0px 20px 0px ;
+        }
+
+        .text02 {
+            padding: 13px 0px 20px 0px ;
+        }
+
+        .banking{
+            margin-top: 13px;
+            border: 1px solid #e9e9e9;
+            font-size: 11px;
+            width: 135px;
+            height: 24px;
+            color: #888;
+        }
     </style>
 </head>
 <body>
@@ -384,136 +563,210 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br>
-        <!-- <section2>
-        <h1> MD's PICK </h1>
-      
-        <div class="MD">   
-      
-        <dl class="size">
-            <img src="img03/자체제작 시원한 여름이불.jpg" alt="이불1"><br>
-            <dd>
-               자체제작 시원한 여름이불 BEST 모음전 55 colors<br>   
-              <span>28,400원</span> <span>19,900원</span>
-              </dd>
-        </dl>
-      
-         <dl class="size">
-            <img src="img03/대나무소재 뱀부 시어서커.jpg" alt="이불2">
-            <dd>
-             대나무소재 뱀부 시어서커 여름이불 침구세트 SS<br>
-             <span>57,000원</span> <span>39,900원</span>
-            </dd>
-         </dl>
-      
-         <dl class="size">
-            <img src="img03/보솜 저데니아.jpg" alt="이불3">
-            <dd>
-             보솜 저데니아 마이크로화이버 베개솜
-             23,900원
-            </dd>
-         </dl>
-           
-         <dl class="size">
-            <img src="img03/마틴 시어서커 60수.jpg" alt="이불4">
-            <dd>
-             마틴 시어서커 60수 아사면 여름 차렵이불 SS
-             95,000원 47,900원
-            </dd>
-         </dl>
-             
-         <dl class="size">
-            <img src="img03/깅엄체크 시어서커 순면 여름.jpg" alt="이불5">
-             <dd>
-                깅엄체크 시어서커 순면 여름 치렵이불 침구체트 2colors
-               57,000원 39,900원
-             </dd>
-         </dl>
-      
-        </dl>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <h1> 지금 인기있는 상품 </h1>
-      
-        <div class="pop">
-            <dl class="now">
-                <img src="img03/자체제작 시원한 여름이불.jpg" alt="이불1">
-                <dd>
-                     자체제작 시원한 여름이불 BEST 모음전 55 colors
-                     <li>28,400원 19,900원</li>
-                </dd>
-            </dl>
-          
-            <dl class="now"> 
-                 <img src="img03/부스터냉감 여름 홀이불.jpg" alt="이불2">
-                 <dd>
-                    부스터냉감 여름 홀이불/차렵이불 침구세트 1+1<br>
-                    <span>35,800원</span>
-                  </dd>
-              </dl>
-          
-              <dl class="now">
-                 <img src="img03/알러지케어 효성M2.jpg" alt="이불3">
-                 <dd>
-                    알러지케어 효성M2 여름 차렵이불 침구세트 SS 마샬
-                   <li>75,000원 37,900원</li>
-                  </dd>
-              </dl>
-               
-              <dl class="now">
-                 <img src="img03/미피 여름 알러지케어.jpg" alt="이불4">
-                 <dd>
-                    미피 여름 알러지케어 차렵이불 침구세트 SS
-                   <li>140,000원 76,900원</li>
-                  </dd>
-              </dl>
-                 
-              <dl class="now">
-                 <img src="img03/아일랜드 모기기피.gif" alt="이불5">
-                 <dd>
-                    아일랜드 모기기피 시어서커 여름이불 4colors SS<br>
-                   <li>50,900원 19,900원</li>
-               </dd>
-              </dl>
-      
-              <dl class="now">
-               <img src="img03/호텔인코튼 시어서커.jpg" alt="이불5">
-               <dd>
-                  호텔인코튼 시어서커 60수 아사면 차렵이불SS<br>
-                 <li>80,900원 59,900원</li>
-               </dd>
-            </dl>
-      
-            <dl class="now">
-               <img src="img03/시원한 여름 냉감.jpg" alt="이불5">
-               <dd>
-                  시원한 여름 냉감 시어서커 순면 침대 패드 1+1<br>
-                  <span>43,800원</span>
-               </dd>
-            </dl>
-      
-            <dl class="now">
-               <img src="img03/보솜 저데니아.jpg" alt="이불5">
-               <dd>
-                  보솜 저네니아 마이크로화이버 베개솜 1+1<br>
-                 <span>23,900원</span>
-               </dd>
-            </dl>
-      
-        </div>
-      
-                </section2>
-    </div> -->
+        <br><br><br><br><br><br><br><br>
 
+        <section id="section2">
+            <h1> MD's PICK </h1>
+            <div class="MD">   
+            
+                <dl class="mditem">
+                    <img class=mdimg src="img03/자체제작 시원한 여름이불.jpg" alt="이불1">
+                    <dt class="fttitle">자체제작 시원한 여름이불 BEST 모음전 55 colors </dt>   
+                    <dd>28,400원<span class="price">19,900원</span></dd>
+                </dl>
+            
+                <dl class="mditem">
+                    <img class=mdimg src="img03/대나무소재 뱀부 시어서커.jpg" alt="이불2">
+                    <dt class="fttitle">대나무소재 뱀부 시어서커 여름이불 침구세트 SS</dt>
+                    <dd>57,000원<span class="price">39,900원</span></dd> 
+                </dl>
+            
+                <dl class="mditem">
+                    <img class=mdimg src="img03/보솜 저데니아.jpg" alt="이불3">
+                    <dt class="fttitle">보솜 저데니아 마이크로화이버 베개솜 </dt>
+                    <dd><span class="price">23,900원</span></dd>
+                </dl>
+                 
+                <dl class="mditem">
+                    <img class=mdimg  src="img03/마틴 시어서커 60수.jpg" alt="이불4">
+                    <dt class="fttitle">마틴 시어서커 60수 아사면 여름 차렵이불 SS</dt>
+                    <dd>95,000원<span class="price">47,900원</span></dd>
+                </dl>
+                   
+                <dl class="mditem">
+                    <img class=mdimg  src="img03/깅엄체크 시어서커 순면 여름.jpg" alt="이불5">
+                    <dt class="fttitle">깅엄체크 시어서커 순면 여름 치렵이불 침구체트 2colors </dt>
+                    <dd>57,000원<span class="price">39,900원</span></dd>
+                </dl>
+            </div>
+            <br><br>
+            <h1> 지금 인기있는 상품 </h1>
+            
+            <div class="pop">
+                         
+                <dl class="now">
+                    <img class="popimg" src="img03/자체제작 시원한 여름이불.jpg" alt="이불1">
+                    <dt class="fttitle2">자체제작 시원한 여름이불 BEST 모음전 55 colors </dt>
+                    <dd>28,400원<span class="price">19,900원</span></dd>  
+                </dl>
+                
+                <dl class="now"> 
+                    <img class="popimg" src="img03/부스터냉감 여름 홀이불.jpg" alt="이불2">
+                    <dt class="fttitle2">부스터냉감 여름 홀이불/차렵이불 침구세트 1+1</dt>
+                    <dd><span class="price">35,800원</span></dd>
+                </dl>
+                
+                <dl class="now">
+                    <img class="popimg" src="img03/알러지케어 효성M2.jpg" alt="이불3">
+                    <dt class="fttitle2">알러지케어 효성M2 여름 차렵이불 침구세트 SS 마샬</dt>
+                    <dd>75,000원 <span class="price">37,900원</span></dd>
+                </dl>
+                     
+                <dl class="now">
+                    <img class="popimg" src="img03/미피 여름 알러지케어.jpg" alt="이불4">
+                    <dt class="fttitle2">미피 여름 알러지케어 차렵이불 침구세트 SS </dt>
+                    <dd>140,000원 <span class="price">76,900원</span></dd>
+                </dl>
+                       
+                <dl class="now">
+                    <img class="popimg" src="img03/아일랜드 모기기피.gif" alt="이불5">
+                    <dt class="fttitle2">아일랜드 모기기피 시어서커 여름이불 4colors SS</dt>
+                    <dd>50,900원<span class="price">19,900원</span></dd>
+                </dl>
+            
+                <dl class="now">
+                    <img class="popimg" src="img03/호텔인코튼 시어서커.jpg" alt="이불6">
+                    <dt class="fttitle2">호텔인코튼 시어서커 60수 아사면 차렵이불SS</dt>
+                    <dd>80,900원<span class="price">59,900원</span></dd>
+                </dl>
+            
+                <dl class="now">
+                    <img class="popimg" src="img03/시원한 여름 냉감.jpg" alt="이불7">
+                    <dt class="fttitle2">시원한 여름 냉감 시어서커 순면 침대 패드 1+1</dt>
+                    <dd><span class="price">43,800원</span></dd> 
+                </dl>
+            
+                <dl class="now">
+                    <img class="popimg" src="img03/보솜 저데니아.jpg" alt="이불8">
+                    <dt class="fttitle2">보솜 저네니아 마이크로화이버 베개솜 1+1</dt>
+                    <dd><span class="price">23,900원</span></dd>
+                </dl>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footertop">  
+                <div class="information">
+                    <li>회사소개</li>
+                    <li>| 이용약관</li>
+                    <li>| 개인정보 처리방침</li> 
+                    <li>| 입점/제휴</li> 
+                    <li>| 대량구매</li> 
+                    <li>| 고객센터</li>
+                </div>       
+                <div class="network">
+                    <img src="img03/instagram logo.gif" alt="instagram">
+                    <img src="img03/facebook logo.gif" alt="facebook">
+                </div>
+            </div>    
+            <div class="ftmiddle">
+                <div class="footermiddle01"> 
+                    <div class="ti_li">
+                        <div class="title">CUSTOMER CENTER</div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="text01">
+                        메신저와 문의게시판 이용하시고<br>
+                        더 빠르고 정확한 답변 받아보세요!
+                    </div>
+                    <div class="text02">
+                        평일 오전 10:00~오후 5:00 / 점심시간 오후 12:30~오후 1:30<br>
+                        토/일/공휴일 휴무
+                    </div>
+                    <div class="talk">
+                        <li class="talkpad">
+                            <img src="img03/toktok logo.jpg" alt="toktok">
+                        </li>
+                        <li class="talkpad">
+                            <img src="img03/kakao logo.jpg" alt="kakao">
+                        </li>
+                    </div>
+                </div>           
+                <div class="footermiddle02">
+                    <div class="ti_li">
+                        <div class="title">BANK ACCOUNT</div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="bank">
+                        <li><span>국민</span>399101-04-168289</li>
+                        <li><span>농협</span>355-003-6891-43</li>
+                        <li><span>예금주 : 주식회사 누비지오</span></li>
+                    </div>
+                    <div>
+                        <select class="banking">
+                            <option value="bank">인터넷뱅킹 바로가기</option>
+                            <option value="bank">국민은행</option>
+                            <option value="bank">씨티은행</option>
+                            <option value="bank">신한은행</option>
+                            <option value="bank">기업은행</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="footermiddle03">              
+                    <div>
+                        <div class="ti_li">
+                            <div class="title">SHOPPING MENU</div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="sm">
+                            <li><a>마이페이지</a></li>
+                            <li><a>관심상품</a></li>
+                            <li><a>장바구니</a></li>
+                            <li><a>주문조회</a></li>
+                        </div>
+                    </div>
+                </div>
+                           
+                <div class="footermiddle04">
+                    <div>
+                        <div class="ti_li">
+                            <div class="title">RETURN/EXCHANGE</div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="return">
+                            <li>반품주소 : 경기도 용인시 처인구 양지면 주북로 261-1 누비지오</li>
+                            <li>교환 및 반품시,미리 고객센터에 접수 후 보내주세요</li>
+                        </div> 
+                        <div>
+                            <button type="button">NOTICE</button>
+                            <button type="button">STORE</button>
+                            <button type="button">REVIEW</button>
+                            <button type="button">ODER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="footerlow">
+                    <div class="content03">
+                        <div class="text03">
+                            상호명 : 주식회사 누비지오  대표 : 김동훈  전화 : 1688-7990 팩스 : 070-4325-0770<br>
+                            경기 용인시 처인구 양지면 주북로 261-1번지 누비지오 사업자등록번호 : 142-81-42808  통신판매업신고 : 제2012용인처인-0114호<br>
+                            개인정보보호책임자 : 김호정(nubizio@nubizio.com)  Hosting by (주)코리아센터닷컴
+                        </div>
+                        <div class="text04">
+                            당신의 모든 제작물의 저작원은 모렌비에 있으며,무단복제나 도용은<br>
+                        저작권법(97조5항)에 의해 금지되어 있습니다.이를 위반시 법적인 처벌을 받을 수 있습니다.
+                        </div>
+                        <div class="text05">
+                            COPYRIGHT BY MORENVY.COM ALL RIGHT RESERVED DESIGNED BY MORENVY.COM
+                        </div>
+                    </div>
+                    <div class="text06">
+                        <img src="img03/footer low img.jpg" alt="low img">
+                    </div>
+                </div>          
+        </footer>
+    </div>
 <script>
     var slideIndex = 0;
     showSlides();
