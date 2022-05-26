@@ -7,7 +7,7 @@
     <title>Nubizio_v03</title>
     <style>
         body       {  margin: 0;      }
-        #WebLayout {  width: 1263px;
+        #WebLayout {  width: 100%;
                       margin: 0 auto; }
 
         /*------- 로고 및 유저 정보 인터페이스 적용 --------*/
@@ -21,8 +21,8 @@
         }
         #top a img    { height: 120px;   }
         #top div a *  { margin: 1px 5px; }
-        #user > a     { font-size: 14px; }
-        #user .drop>a { font-size: 14px; }
+        #usermenu > a     { font-size: 14px; }
+        #usermenu .dropmain>a { font-size: 14px; }
 
         /*------------ 메뉴바 ------------------------*/
 
@@ -31,7 +31,7 @@
             background-color: rgb(223, 15, 15);
             color: bisque;
         }
-        .drop [type=button] {
+        .dropmain [type=button] {
             width: 160px;   height: 40px;
             margin: 0;      padding: 0;
             border: none;
@@ -40,7 +40,7 @@
             font-size: 18px;
             font-weight: bold;
         }
-        .drop:hover [type=button] {
+        .dropmain:hover [type=button] {
             background-color: rgb(255, 231, 231);
             color:rgb(230, 1, 1);
         }
@@ -69,9 +69,9 @@
             color:rgb(221, 221, 221)
         }
 
-        /*------------ 메뉴 드롭다운  -------------*/
+        /*------------ 드롭다운 메뉴 설정  -------------*/
 
-        .drop {
+        .dropmain {
             display: inline-block;
             position: relative;
             z-index: 1;
@@ -92,11 +92,11 @@
             padding: 20px 10px 25px 10px;
             background-color: rgb(241, 241, 241);           
         }
-        .drop:hover .sub  {
+        .dropmain:hover .sub  {
             visibility: visible;
             animation: fade_in 0.3s;
         }
-        .drop:hover .sub2 {
+        .dropmain:hover .sub2 {
             visibility: visible;
             animation: fade_in 0.3s;
         }
@@ -110,7 +110,7 @@
             to   { opacity: 3;
                    transform: none; }
         }
-        #user a {
+        #usermenu a {
             text-decoration: none;
             color: rgb(85, 85, 85);
         }
@@ -128,7 +128,7 @@
             color:#717171;
             font-size: 14px;
         }
-        .drop> a,button {
+        .dropmain> a,button {
             cursor: default;
         }
 
@@ -421,10 +421,10 @@
         <header>
             <div id="top">
                 <a href="NUBIZIO_MAIN_v03.html"><img src="img01/누비지오.jpeg"></a>
-                <div id="user">
+                <div id="usermenu">
                     <a href="#">로그인</a> |
                     <a href="#">회원가입</a> |
-                    <div class="drop">
+                    <div class="dropmain">
                         <a>마이쇼핑▼</a>
                         <div class="sub">
                             <a href="$">장바구니</a>
@@ -434,7 +434,7 @@
                         </div>
                     </div> |
                     <a href="#">고객만족센터</a> |
-                    <div class="drop">
+                    <div class="dropmain">
                         <a>커뮤니티▼</a>
                         <div class="sub">
                             <a href="$">공지사항</a>
@@ -447,7 +447,7 @@
                 </div>
             </div>
             <nav id="menu">
-                <div class="drop">
+                <div class="dropmain">
                     <button type="button">순위별</button>
                     <div class="sub2">
                         <a href="@">신상품</a>
@@ -455,7 +455,7 @@
                         <a href="@">후기많은상품</a>
                     </div>
                 </div>
-                <div class="drop">
+                <div class="dropmain">
                     <button type="button">원클릭풀세트</button>
                     <div class="sub2">
                         <a href="@">차렵이불 풀세트</a>
@@ -463,7 +463,7 @@
                         <a href="@">여름이불 풀세트</a>
                     </div>
                 </div>
-                <div class="drop">
+                <div class="dropmain">
                     <button type="button">이불</button>
                     <div class="sub2">
                         <a href="@">전체보기</a>
@@ -473,7 +473,7 @@
                         <a href="@">겨울이불</a>
                     </div>
                 </div>
-                <div class="drop">
+                <div class="dropmain">
                     <button type="button">침구단품</button>
                     <div class="sub2">
                         <a href="@">전체보기</a>
@@ -485,7 +485,7 @@
                         <a href="@">솜</a>
                     </div>
                 </div>
-                <div class="drop">
+                <div class="dropmain">
                     <button type="button">커튼</button>
                     <div class="sub2">
                         <a href="@">전체보기</a>
@@ -496,7 +496,7 @@
                         <a href="@">커튼봉/부자재</a>
                     </div>
                 </div>
-                <div class="drop">
+                <div class="dropmain">
                     <button type="button">홈데코</button>
                     <div class="sub2">
                         <a href="@">전체보기</a>
