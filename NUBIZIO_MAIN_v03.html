@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nubizio_v03</title>
+    <style>
+        body       {  margin: 0;      }
+        #WebLayout {  width: 1263px;
+                      margin: 0 auto; }
+
+        /*------- 로고 및 유저 정보 인터페이스 적용 --------*/
+
+        #top {
+            height: 120px;
+            padding: 7px 20px 7px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        #top a img    { height: 120px;   }
+        #top div a *  { margin: 1px 5px; }
+        #user > a     { font-size: 14px; }
+        #user .drop>a { font-size: 14px; }
+
+        /*------------ 메뉴바 ------------------------*/
+
+        #menu {
+            width: 100%;   height: 40px;
+            background-color: rgb(223, 15, 15);
+            color: bisque;
+        }
+        .drop [type=button] {
+            width: 180px;   height: 40px;
+            margin: 0;      padding: 0;
+            border: none;
+            color: rgba(255, 221, 221, 0.938);
+            background-color: rgb(223, 15, 15);
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .drop:hover [type=button] {
+            background-color: rgb(255, 231, 231);
+            color:rgb(230, 1, 1);
+        }
+        .search {
+            float: right;
+            padding: 6px;
+            margin-right: 15px;
+        }
+        [type=search] {
+            height: 25px;
+            border: none;
+            border-radius: 5px;
+            outline-color: rgb(255, 0, 0);
+        }
+        [type=submit] {
+            height: 25px;
+            border: 1px solid rgb(255, 82, 52);
+            border-radius: 5px;
+            background-color: rgb(253, 238, 238);
+            color: rgb(230, 1, 1);
+            font-weight: bold;
+            box-shadow: 2px 2px 2px rgb(138, 52, 40);
+        }
+        [type=submit]:hover {
+            background-color: rgb(204, 0, 0);
+            color:rgb(221, 221, 221)
+        }
+
+        /*------------ 메뉴 드롭다운  -------------*/
+
+        .drop {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        .sub {
+            visibility: hidden;
+            position: absolute;
+            width: 70px;
+            padding: 1px 2px 1px 2px;
+            border-radius: 10px;
+            background-color: rgb(245, 245, 245);
+        }
+        .sub2 {
+            visibility: hidden;
+            position: absolute;
+            width: 160px;
+            border: 0;
+            padding: 20px 10px 25px 10px;
+            background-color: rgb(241, 241, 241);           
+        }
+        .drop:hover .sub  {
+            visibility: visible;
+            animation: fade_in 0.3s;
+        }
+        .drop:hover .sub2 {
+            visibility: visible;
+            animation: fade_in 0.3s;
+        }
+        .sub2 a:hover, .sub a:hover {
+            color: rgb(59, 59, 59);
+            font-weight: bold;
+        }
+        @keyframes fade_in {
+            from { opacity: 0;
+                   transform: translateY(-10px) }
+            to   { opacity: 3;
+                   transform: none; }
+        }
+        #user a {
+            text-decoration: none;
+            color: rgb(85, 85, 85);
+        }
+        .sub a {
+            display: block;
+            padding-bottom: 2px;
+            font-size: 13px;
+            color:rgb(148, 148, 148);
+        }
+        .sub2 a {
+            display: block;
+            padding-left: 10px;
+            padding-bottom: 5px;
+            text-decoration: none;
+            color:#717171;
+            font-size: 14px;
+        }
+        .drop> a,button {
+            cursor: default;
+        }
+
+        /*----------------- 섹션1--------------------*/
+
+        /* 여기서부터 슬라이딩 이미지 ------------------------------------*/
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .mySlides img { z-index: -2; }
+        [target] img  { width: 100%; }
+
+        .active { background-color: #717171; }
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to   {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to   {opacity: 1}
+        }
+
+        @media only screen and (max-width: 300px) {
+            .text {font-size: 11px}
+        }
+
+        /* 여기부터 하단이미지------------------------------------ */
+        #container {
+            width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template: 265px 265px / 1fr 1fr 1fr 1fr; 
+            text-align: center;
+            color: rgb(5, 5, 5);
+        }
+
+        #container div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #cella {
+            grid-area: 1 / 1 / 2 / 3;
+            padding: 0.5em;           }
+        #cellb {
+            grid-area: 2 / 1 / 3 / 2;
+            padding: 8px 8px 0px 8px; }
+        #cellc {
+            grid-area: 2 / 2 / 3 / 3;
+            padding: 8px 8px 0px 8px; }
+        #celld {
+            grid-area: 1 / 3 / 3 / 5;
+            padding: 8px 8px 0px 8px; }
+
+        #atext {
+            text-align: left;
+            position: absolute;
+            top: 50px;
+            left: 15px;
+        }
+        #dtext {
+            text-align: right;
+            position: absolute;
+            top: 383px;
+            bottom: 5px;
+            left: 667px;
+        }
+        /*-------------- 섹션2 ------------------*/
+        .MD{
+            width: 1280px;
+            display: flex ;
+            flex-direction: row ;
+            justify-content: space-around;
+            flex-wrap: wrap ;
+            text-align: center ;
+        }
+        .pop {
+            width: 1280px;
+            display: flex ;
+            flex-direction: row ;
+            justify-content: space-around;
+            flex-wrap: wrap ;
+            text-align: center ;
+        }
+        dl img{
+            width: 200px ;
+            height: 300px ;
+        }
+        .size { width: 200px; }
+        .now  { width: 300px; }
+        h1    { text-align: center ;}
+        dd    { text-indent: 0px;}
+    </style>
+</head>
+<body>
+    <div id="WebLayout">
+        <header>
+            <div id="top">
+                <a href="NUBIZIO_MAIN_v03.html"><img src="img01/누비지오.jpeg"></a>
+                <div id="user">
+                    <a href="#">로그인</a> |
+                    <a href="#">회원가입</a> |
+                    <div class="drop">
+                        <a>마이쇼핑▼</a>
+                        <div class="sub">
+                            <a href="$">장바구니</a>
+                            <a href="$">관심상품</a>
+                            <a href="$">적립금</a>
+                            <a href="$">쿠폰</a>
+                        </div>
+                    </div> |
+                    <a href="#">고객만족센터</a> |
+                    <div class="drop">
+                        <a>커뮤니티▼</a>
+                        <div class="sub">
+                            <a href="$">공지사항</a>
+                            <a href="$">회원혜택</a>
+                            <a href="$">상품후기</a>
+                            <a href="$">문의하기</a>
+                            <a href="$">사업자회원</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav id="menu">
+                <div class="drop">
+                    <button type="button">원클릭풀세트</button>
+                    <div class="sub2">
+                        <a href="@">차렵이불 풀세트</a>
+                        <a href="@">이불커버 풀세트</a>
+                        <a href="@">여름이불 풀세트</a>
+                    </div>
+                </div>
+                <div class="drop">
+                    <button type="button">이불</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">여름이불</a>
+                        <a href="@">차렵이불</a>
+                        <a href="@">이불커버</a>
+                        <a href="@">겨울이불</a>
+                    </div>
+                </div>
+                <div class="drop">
+                    <button type="button">침구단품</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">패드</a>
+                        <a href="@">매트/침대커버</a>
+                        <a href="@">토퍼</a>
+                        <a href="@">요커버/토퍼커버</a>
+                        <a href="@">베개커버</a>
+                        <a href="@">솜</a>
+                    </div>
+                </div>
+                <div class="drop">
+                    <button type="button">커튼</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">암막커튼</a>
+                        <a href="@">속커튼</a>
+                        <a href="@">가리개커튼</a>
+                        <a href="@">디자인커튼</a>
+                        <a href="@">커튼봉/부자재</a>
+                    </div>
+                </div>
+                <div class="drop">
+                    <button type="button">홈데코</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">발매트/주방매트</a>
+                        <a href="@">카페트</a>
+                        <a href="@">바디필로우/쿠션</a>
+                        <a href="@">쇼파패드/커버</a>
+                        <a href="@">실내화</a>
+                        <a href="@">데코소품</a>
+                        <a href="@">홈웨어</a>
+                    </div>
+                </div>
+                <form class="search">
+                    <input type="search" placeholder="검색">
+                    <input type="submit" value="검색">
+                </form>
+            </nav>
+        </header>
+         
+        <div id ="section01">
+             <!-- 여기서부터 슬라이딩 이미지 ------------------------- -->
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/main01.jpg">
+                    </a>
+                </div>              
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/main02.jpg">
+                    </a>
+                </div>              
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/main03.jpg">
+                    </a>
+                </div>    
+                <br>
+                <br>
+            </div>           
+            <div style="text-align:center">
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+                <span class="dot"></span> 
+            </div>
+
+            <!-- 여기서부터 하단 이미지------------------------------------- -->
+        
+            <div id="container">
+                <div id="cella">
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/article1.jpg" alt="이미지 없음">
+                    </a>
+                </div>
+                <div id="cellb">
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/article2.jpg" alt="이미지 없음">
+                    </a>
+                </div>
+                <div id="cellc">
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/article3.png" alt="이미지 없음">
+                    </a>
+                </div>
+                <div id="celld">
+                    <a href="상품판매링크" target="_self">
+                        <img src="img02/article4.jpg" alt="이미지 없음">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <!-- <section2>
+        <h1> MD's PICK </h1>
+      
+        <div class="MD">   
+      
+        <dl class="size">
+            <img src="img03/자체제작 시원한 여름이불.jpg" alt="이불1"><br>
+            <dd>
+               자체제작 시원한 여름이불 BEST 모음전 55 colors<br>   
+              <span>28,400원</span> <span>19,900원</span>
+              </dd>
+        </dl>
+      
+         <dl class="size">
+            <img src="img03/대나무소재 뱀부 시어서커.jpg" alt="이불2">
+            <dd>
+             대나무소재 뱀부 시어서커 여름이불 침구세트 SS<br>
+             <span>57,000원</span> <span>39,900원</span>
+            </dd>
+         </dl>
+      
+         <dl class="size">
+            <img src="img03/보솜 저데니아.jpg" alt="이불3">
+            <dd>
+             보솜 저데니아 마이크로화이버 베개솜
+             23,900원
+            </dd>
+         </dl>
+           
+         <dl class="size">
+            <img src="img03/마틴 시어서커 60수.jpg" alt="이불4">
+            <dd>
+             마틴 시어서커 60수 아사면 여름 차렵이불 SS
+             95,000원 47,900원
+            </dd>
+         </dl>
+             
+         <dl class="size">
+            <img src="img03/깅엄체크 시어서커 순면 여름.jpg" alt="이불5">
+             <dd>
+                깅엄체크 시어서커 순면 여름 치렵이불 침구체트 2colors
+               57,000원 39,900원
+             </dd>
+         </dl>
+      
+        </dl>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1> 지금 인기있는 상품 </h1>
+      
+        <div class="pop">
+            <dl class="now">
+                <img src="img03/자체제작 시원한 여름이불.jpg" alt="이불1">
+                <dd>
+                     자체제작 시원한 여름이불 BEST 모음전 55 colors
+                     <li>28,400원 19,900원</li>
+                </dd>
+            </dl>
+          
+            <dl class="now"> 
+                 <img src="img03/부스터냉감 여름 홀이불.jpg" alt="이불2">
+                 <dd>
+                    부스터냉감 여름 홀이불/차렵이불 침구세트 1+1<br>
+                    <span>35,800원</span>
+                  </dd>
+              </dl>
+          
+              <dl class="now">
+                 <img src="img03/알러지케어 효성M2.jpg" alt="이불3">
+                 <dd>
+                    알러지케어 효성M2 여름 차렵이불 침구세트 SS 마샬
+                   <li>75,000원 37,900원</li>
+                  </dd>
+              </dl>
+               
+              <dl class="now">
+                 <img src="img03/미피 여름 알러지케어.jpg" alt="이불4">
+                 <dd>
+                    미피 여름 알러지케어 차렵이불 침구세트 SS
+                   <li>140,000원 76,900원</li>
+                  </dd>
+              </dl>
+                 
+              <dl class="now">
+                 <img src="img03/아일랜드 모기기피.gif" alt="이불5">
+                 <dd>
+                    아일랜드 모기기피 시어서커 여름이불 4colors SS<br>
+                   <li>50,900원 19,900원</li>
+               </dd>
+              </dl>
+      
+              <dl class="now">
+               <img src="img03/호텔인코튼 시어서커.jpg" alt="이불5">
+               <dd>
+                  호텔인코튼 시어서커 60수 아사면 차렵이불SS<br>
+                 <li>80,900원 59,900원</li>
+               </dd>
+            </dl>
+      
+            <dl class="now">
+               <img src="img03/시원한 여름 냉감.jpg" alt="이불5">
+               <dd>
+                  시원한 여름 냉감 시어서커 순면 침대 패드 1+1<br>
+                  <span>43,800원</span>
+               </dd>
+            </dl>
+      
+            <dl class="now">
+               <img src="img03/보솜 저데니아.jpg" alt="이불5">
+               <dd>
+                  보솜 저네니아 마이크로화이버 베개솜 1+1<br>
+                 <span>23,900원</span>
+               </dd>
+            </dl>
+      
+        </div>
+      
+                </section2>
+    </div> -->
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+    
+    function showSlides() {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 3000);
+    }
+</script>
+</body>
+</html>
