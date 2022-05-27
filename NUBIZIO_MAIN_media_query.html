@@ -9,20 +9,23 @@
         body       {  margin: 0;      }
         #WebLayout {  width: 1263px;
                       margin: 0 auto; }
-
+        
+        @media screen and (min-width:576px) {}
+        @media screen and (min-width:768px) {}
+        @media screen and (min-width:992px) {}
+        
         /*----------------- 퀵메뉴 ------------------*/
         #quick_menu { 
             width: 42px;
             position: fixed;
             bottom: 25px; right: 15px;
+            z-index: 1;
+        }
+        #quick_menu .messenger img {
+            width: 41px; height: 41px;
         }
         #quick_menu button:not(.messenger) img {
             width: 25px; height: 25px;
-            text-align: center;
-        }
-        .messenger img {
-            width: 41px; height: 41px;
-            text-align: center;
         }
         #quick_menu button {
             width: 42px;   height: 42px;
@@ -200,7 +203,7 @@
 
         /* 여기부터 하단이미지------------------------------------ */
         #container {
-            width: 1200px;
+            width: 97%;
             margin: 0 auto;
             display: grid;
             grid-template: 265px 265px / 1fr 1fr 1fr 1fr; 
