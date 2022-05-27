@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nubizio_v03</title>
+    <style>
+        body       {  margin: 0;      }
+        #WebLayout {  width: 100%;
+                      margin: 0 auto; }
+
+        /*------- 로고 및 유저 정보 인터페이스 적용 --------*/
+
+        #top {
+            height: 120px;
+            padding: 7px 20px 7px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        #top a img    { height: 120px;   }
+        #top div a *  { margin: 1px 5px; }
+        #usermenu > a     { font-size: 14px; }
+        #usermenu .dropmain>a { font-size: 14px; }
+
+        /*------------ 메뉴바 ------------------------*/
+
+        #menu {
+            width: 100%;   height: 40px;
+            background-color: rgb(223, 15, 15);
+            color: bisque;
+        }
+        .dropmain [type=button] {
+            width: 160px;   height: 40px;
+            margin: 0;      padding: 0;
+            border: none;
+            color: rgba(255, 221, 221, 0.938);
+            background-color: rgb(223, 15, 15);
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .dropmain:hover [type=button] {
+            background-color: rgb(255, 231, 231);
+            color:rgb(230, 1, 1);
+        }
+        .search {
+            float: right;
+            padding: 6px;
+            margin-right: 15px;
+        }
+        [type=search] {
+            height: 25px;
+            border: none;
+            border-radius: 5px;
+            outline-color: rgb(255, 0, 0);
+        }
+        [type=submit] {
+            height: 25px;
+            border: 1px solid rgb(255, 82, 52);
+            border-radius: 5px;
+            background-color: rgb(253, 238, 238);
+            color: rgb(230, 1, 1);
+            font-weight: bold;
+            box-shadow: 2px 2px 2px rgb(138, 52, 40);
+        }
+        [type=submit]:hover {
+            background-color: rgb(204, 0, 0);
+            color:rgb(221, 221, 221)
+        }
+
+        /*------------ 드롭다운 메뉴 설정  -------------*/
+
+        .dropmain {
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+        .sub {
+            visibility: hidden;
+            position: absolute;
+            width: 70px;
+            padding: 1px 2px 1px 2px;
+            border-radius: 10px;
+            background-color: rgb(245, 245, 245);
+        }
+        .sub2 {
+            visibility: hidden;
+            position: absolute;
+            width: 140px;
+            border: 0;
+            padding: 20px 10px 25px 10px;
+            background-color: rgb(241, 241, 241);           
+        }
+        .dropmain:hover .sub  {
+            visibility: visible;
+            animation: fade_in 0.3s;
+        }
+        .dropmain:hover .sub2 {
+            visibility: visible;
+            animation: fade_in 0.3s;
+        }
+        .sub2 a:hover, .sub a:hover {
+            color: rgb(59, 59, 59);
+            font-weight: bold;
+        }
+        @keyframes fade_in {
+            from { opacity: 0;
+                   transform: translateY(-10px) }
+            to   { opacity: 3;
+                   transform: none; }
+        }
+        #usermenu a {
+            text-decoration: none;
+            color: rgb(85, 85, 85);
+        }
+        .sub a {
+            display: block;
+            padding-bottom: 2px;
+            font-size: 13px;
+            color:rgb(148, 148, 148);
+        }
+        .sub2 a {
+            display: block;
+            padding-left: 10px;
+            padding-bottom: 5px;
+            text-decoration: none;
+            color:#717171;
+            font-size: 14px;
+        }
+        .dropmain> a,button {
+            cursor: default;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="WebLayout">
+        <header>
+            <div id="top">
+                <a href="NUBIZIO_MAIN_v03.html"><img src="img01/누비지오.jpeg"></a>
+                <div id="usermenu">
+                    <a href="#">로그인</a> |
+                    <a href="#">회원가입</a> |
+                    <div class="dropmain">
+                        <a>마이쇼핑▼</a>
+                        <div class="sub">
+                            <a href="$">장바구니</a>
+                            <a href="$">관심상품</a>
+                            <a href="$">적립금</a>
+                            <a href="$">쿠폰</a>
+                        </div>
+                    </div> |
+                    <a href="#">고객만족센터</a> |
+                    <div class="dropmain">
+                        <a>커뮤니티▼</a>
+                        <div class="sub">
+                            <a href="$">공지사항</a>
+                            <a href="$">회원혜택</a>
+                            <a href="$">상품후기</a>
+                            <a href="$">문의하기</a>
+                            <a href="$">사업자회원</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav id="menu">
+                <div class="dropmain">
+                    <button type="button">순위별</button>
+                    <div class="sub2">
+                        <a href="@">신상품</a>
+                        <a href="@">인기 상품</a>
+                        <a href="@">후기많은상품</a>
+                    </div>
+                </div>
+                <div class="dropmain">
+                    <button type="button">원클릭풀세트</button>
+                    <div class="sub2">
+                        <a href="@">차렵이불 풀세트</a>
+                        <a href="@">이불커버 풀세트</a>
+                        <a href="@">여름이불 풀세트</a>
+                    </div>
+                </div>
+                <div class="dropmain">
+                    <button type="button">이불</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">여름이불</a>
+                        <a href="@">차렵이불</a>
+                        <a href="@">이불커버</a>
+                        <a href="@">겨울이불</a>
+                    </div>
+                </div>
+                <div class="dropmain">
+                    <button type="button">침구단품</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">패드</a>
+                        <a href="@">매트/침대커버</a>
+                        <a href="@">토퍼</a>
+                        <a href="@">요커버/토퍼커버</a>
+                        <a href="@">베개커버</a>
+                        <a href="@">솜</a>
+                    </div>
+                </div>
+                <div class="dropmain">
+                    <button type="button">커튼</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">암막커튼</a>
+                        <a href="@">속커튼</a>
+                        <a href="@">가리개커튼</a>
+                        <a href="@">디자인커튼</a>
+                        <a href="@">커튼봉/부자재</a>
+                    </div>
+                </div>
+                <div class="dropmain">
+                    <button type="button">홈데코</button>
+                    <div class="sub2">
+                        <a href="@">전체보기</a>
+                        <a href="@">발매트/주방매트</a>
+                        <a href="@">카페트</a>
+                        <a href="@">바디필로우/쿠션</a>
+                        <a href="@">쇼파패드/커버</a>
+                        <a href="@">실내화</a>
+                        <a href="@">데코소품</a>
+                        <a href="@">홈웨어</a>
+                    </div>
+                </div>
+                <form class="search">
+                    <input type="search" placeholder="검색">
+                    <input type="submit" value="검색">
+                </form>
+            </nav>
+        </header>
+    </div>
+</body>
+</html>
