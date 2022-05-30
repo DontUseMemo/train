@@ -10,9 +10,29 @@
         #WebLayout {  width: 1263px;
                       margin: 0 auto; }
         
-        @media only screen and (min-width:576px) {}
-        @media only screen and (min-width:768px) {}
-        @media only screen and (min-width:992px) {}
+        @media only screen and (max-width:576px) {}
+        @media only screen and (max-width:768px) { 
+            .footermiddle01 {width: 100%;}
+            .footermiddle02 {width: 100%;}
+            .footermiddle04 {width: 100%;}
+        }
+        @media only screen and (max-width:1024px) {
+            #WebLayout  { width: 100%}
+            #quick_menu { display: none; }
+            #top {
+                height: 50px; width: 100%;
+                border-bottom: 5px solid rgb(223, 15, 15);
+                background-color: white;
+                position: fixed;
+                top: 0;
+                z-index: 999;
+            }
+            /* #top a { width: 50px;} */
+            #usermenu { display: none;}
+            #menu     { display: none;}
+            #footer { width: 100%;}
+           
+        }
         
         /*----------------- 퀵메뉴 ------------------*/
         #quick_menu { 
@@ -52,7 +72,10 @@
             justify-content: space-between;
             align-items: flex-start;
         }
-        #top a img    { height: 120px;   }
+        #top a { width: 120px ;}
+        #top a img    { 
+            max-width: 100%;
+            height: auto;   }
         #top div a *  { margin: 1px 5px; }
         
         #usermenu a   { text-decoration: none;
@@ -71,7 +94,7 @@
             margin: 0;      padding: 0;
             border: none;
             color: rgba(255, 221, 221, 0.938);
-            background-color: rgb(223, 15, 15);
+            background-color: transparent;
             font-size: 18px;
             font-weight: bold;
         }
@@ -86,18 +109,18 @@
             display: flex;
             align-items: center;
         }
-        [type=search] {
+        #menu [type=search] {
             height: 25px;
             border: none;
             border-radius: 5px;
             outline-color: rgb(255, 0, 0);
         }
-        [type=submit] {
+        #menu [type=submit] {
            border: none; 
            background-color: transparent;
            cursor: pointer;
         }
-        [type=submit] img {
+        #menu [type=submit] img {
             width: 23px;
         }
         /*------------ 드롭다운 메뉴 설정  -------------*/
@@ -198,12 +221,11 @@
 
         /* 여기부터 하단이미지------------------------------------ */
         #container {
-            width: 97%;
-            margin: 0 auto;
+            margin: 20px 25px;
             display: grid;
-            grid-template: 265px 265px / 1fr 1fr 1fr 1fr; 
+            grid-template: 255px 255px / 1fr 1fr 1fr 1fr; 
             text-align: center;
-            color: rgb(5, 5, 5);
+            gap: 20px;
         }
 
         #container div img {
@@ -212,20 +234,12 @@
             object-fit: cover;
         }
 
-        #cella {
-            grid-area: 1 / 1 / 2 / 3;
-            padding: 0.5em;           }
-        #cellb {
-            grid-area: 2 / 1 / 3 / 2;
-            padding: 8px 8px 0px 8px; }
-        #cellc {
-            grid-area: 2 / 2 / 3 / 3;
-            padding: 8px 8px 0px 8px; }
-        #celld {
-            grid-area: 1 / 3 / 3 / 5;
-            padding: 8px 8px 0px 8px; }
+        #cella { grid-area: 1 / 1 / 2 / 3; }
+        #cellb { grid-area: 2 / 1 / 3 / 2; }
+        #cellc { grid-area: 2 / 2 / 3 / 3; }
+        #celld { grid-area: 1 / 3 / 3 / 5; }
 
-        #atext {
+        /* #atext {
             text-align: left;
             position: absolute;
             top: 50px;
@@ -237,7 +251,7 @@
             top: 383px;
             bottom: 5px;
             left: 667px;
-        }
+        } */
 
         /*-------------- 섹션2 ------------------*/
 
@@ -248,7 +262,7 @@
             display: flex ;
             flex-direction: row ;
             justify-content: space-around;
-            flex-wrap: nowrap ;
+            flex-wrap: wrap ;
             margin: 15px;
         }
         .pop {
@@ -314,6 +328,7 @@
             flex-direction: row ;
             justify-content: space-between ;
             align-items: center ;
+            flex-wrap: wrap;
             border-top: 1px solid black ;
             border-bottom: 1px solid rgb(228, 228, 228) ;
             padding: 10px ;
@@ -324,10 +339,14 @@
         .information {
             display: flex;
             flex-direction: row ;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .network {
             display: flex;
             flex-direction: row ;
+            align-items: center;
+            flex-wrap: wrap;
         }
         .network img {
             margin: 7px ;
@@ -351,6 +370,7 @@
             display: flex ;
             flex-direction: row ;
             justify-content: space-around;
+            flex-wrap: wrap;
             padding-top: 50px ;
             padding-bottom: 50px ;
             border-bottom: 1px solid rgb(228, 228, 228) ;
@@ -378,6 +398,7 @@
             display: flex ;
             flex-direction: row ;
             justify-content: space-between ;
+            flex-wrap: wrap;
             padding: 60px 0px 0px ;
         }
 
@@ -455,16 +476,18 @@
         </div>    
         <header>
             <div id="top">
-                <a href="NUBIZIO_MAIN_media_query.html"><img src="img01/누비지오.jpeg"></a>
+                <a href="NUBIZIO_MAIN_media_query.html">
+                    <img src="img01/누비지오.jpeg">
+                </a>
                 <div id="usermenu">
                     <a href="누비지오_로그인.html">로그인</a> |
                     <a href="Nubizio.Signup.오상은.html">회원가입</a> |
                     <div class="dropmain">
                         <a>마이페이지▼</a>
                         <div class="sub">
-                            <a href="$">회원정보</a>
                             <a href="$">장바구니</a>
-                            <a href="$">관심상품</a>
+                            <a href="$">내쇼핑정보</a>
+                            <a href="$">회원정보</a>
                             <a href="$">적립금</a>
                             <a href="$">쿠폰</a>
                         </div>
