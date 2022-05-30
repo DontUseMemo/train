@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quick_menu</title>
     <style>
-        #quick_menu { 
-            width: 45px;
+         #quick_menu { 
+            width: 42px;
             position: fixed;
-            bottom: 35px; right: 25px;
+            bottom: 25px; right: 15px;
+            z-index: 1;
         }
-        #quick_menu button:not(button:first-child) img {
-            width: 30px; height: 30px;
-            text-align: center;
+        #quick_menu .messenger img {
+            width: 41px; height: 41px;
         }
-        #quick_menu button:first-child img {
-            width: 43px; height: 43px;
-            text-align: center;
+        #quick_menu button:not(.messenger) img {
+            width: 25px; height: 25px;
         }
         #quick_menu button {
-            width: 45px;   height: 45px;
+            width: 42px;   height: 42px;
             margin: 4px 0; padding: 0;
             border: 1px solid rgb(223, 223, 223);
             border-radius: 100%;
@@ -40,8 +39,8 @@
 </head>
 <body>
     <div id="quick_menu">
-        <button type="button"><img src="img01/카카오톡 상담.png"></button>
-        <button type="button"><img src="img01/고객센터.png"></button>
+        <button type="button" class="messenger"><img src="img01/카카오톡 상담.png"></button>
+        <button type="button" class="messenger"><img src="img01/고객센터.png"></button>
         <button type="button"><img src="img01/장바구니.png"></button>
         <button type="button"><img src="img01/위로 이동.png"></button>
     </div>
