@@ -17,6 +17,8 @@
             transform: translate(-50%, -50%);
         }
 
+        a {text-decoration: none; color: rgb(82, 82, 82);}
+
         #a0101 button {
             margin-top: 50px;
             margin-bottom: 50px;
@@ -25,31 +27,14 @@
             background: white;
         }
 
-        #a0101 button:nth-child(2) {
-            border: 0.5px solid rgb(27, 26, 26);
-        }
+        #a0101 button:hover {background-color: rgb(241, 243, 243);}
 
-        #a0101 button:nth-child(3) {
-            border: 0.5px solid rgb(184, 182, 182);
-        }
-
-        #a0101 button:hover {
-            border: 1px solid black;
-            background-color: rgb(241, 243, 243);
-        }
-
-
-        #a0101 [name="로그인상단"], #a0202 [type="submit"] {
-            font-size:large;
-        }
+        #a0101 [name="로그인상단"], #a0202 [type="submit"] {font-size:large;}
 
         #a0202 [name="아이디비번"] {
-            
             width: 627px;
             height: 55px;
-            margin: 0px;
         }
-
         
         #a0202 [type="submit"] {
             margin-top: 20px;
@@ -58,7 +43,7 @@
         }
 
         [type="submit"]:nth-of-type(1) {
-            background-color: rgb(2, 2, 36);
+            background-color: rgb(143, 143, 143);
             color: white;
             font-weight: bold;
             border-radius: 3px;
@@ -82,29 +67,21 @@
         [type=image]:nth-of-type(3) {
             position: absolute;
             top: 567px;
-            left: 95px;
-            
+            left: 95px; 
         }
 
          [type=image]:nth-of-type(5) {
             position: absolute;
             top: 647px;
             right: 670px;
-            
         }
 
-        [type="checkbox"] {
-            margin-top: 25px;        
-        }
+        @media screen and (max-width:800px) {
+            #login-from {width: 400px;}
 
-        #a0303 {
-            margin: 40px 0px 50px 10px;
-        }
+            #a0101 button {width: 200px;}
 
-        
-        a {
-            text-decoration: none; 
-            color: rgb(82, 82, 82);
+            #a0202 [name="아이디비번"], #a0202 [type="submit"] {width: 400px;}
         }
 
     </style>
@@ -125,6 +102,7 @@
                 <input type="text" name="아이디비번" placeholder=" 아이디">
                 <input type="password" name="아이디비번" placeholder=" 비밀번호">
             </div>
+            <br>
             <div>
                 <input type="checkbox"> 아이디저장
                 <label for="cb1"></label>
@@ -137,11 +115,13 @@
                 <input type="image" src="img02/naver_logo.png">
             </div>
         </div>
-
-        <div id="a0303">
+        <br>
+        <br>
+        <div>
             <a href="아이디 비밀번호 찾기" target="_self">아이디/비밀번호 찾기</a>
             <a href="회원가입" target="_self">회원가입</a>
         </div>
+        <br>
         <hr>
     </div>
 

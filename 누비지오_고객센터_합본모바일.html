@@ -55,8 +55,9 @@
             opacity: 1;
         }
 
-
         /* 헤더------------------------------ */
+        /*------- 로고 및 회원 정보 메뉴 적용 --------*/
+
         #top {
             height: 120px;
             padding: 7px 20px 7px 0px;
@@ -64,7 +65,10 @@
             justify-content: space-between;
             align-items: flex-start;
         }
-        #top a img    { height: 120px;   }
+        #top a { width: 120px ;}
+        #top a img    { 
+            max-width: 100%;
+            height: auto;   }
         #top div a *  { margin: 1px 5px; }
         
         #usermenu a   { text-decoration: none;
@@ -79,11 +83,11 @@
             color: bisque;
         }
         .dropmain [type=button] {
-            width: 160px;   height: 40px;
+            width: 135px;   height: 40px;
             margin: 0;      padding: 0;
             border: none;
             color: rgba(255, 221, 221, 0.938);
-            background-color: rgb(223, 15, 15);
+            background-color: transparent;
             font-size: 18px;
             font-weight: bold;
         }
@@ -98,18 +102,18 @@
             display: flex;
             align-items: center;
         }
-        [type=search] {
+        #menu [type=search] {
             height: 25px;
             border: none;
             border-radius: 5px;
             outline-color: rgb(255, 0, 0);
         }
-        [type=submit] {
+        #menu [type=submit] {
            border: none; 
            background-color: transparent;
            cursor: pointer;
         }
-        [type=submit] img {
+        #menu [type=submit] img {
             width: 23px;
         }
         /*------------ 드롭다운 메뉴 설정  -------------*/
@@ -130,9 +134,9 @@
         .sub2 {
             visibility: hidden;
             position: absolute;
-            width: 140px;
+            width: 125px;
             border: 0;
-            padding: 20px 10px 25px 10px;
+            padding: 15px 5px;
             background-color: rgb(241, 241, 241);           
         }
         .dropmain:hover .sub  {
@@ -183,10 +187,11 @@
 
         #section011 ul, #section033 ul {
             display: flex; 
-            justify-content: 
-            center; padding-left: 0;
+            justify-content: center;
+            padding-left: 0;
+            flex-wrap: wrap;
             }
-        #section033 ul {display: flex;  justify-content: center; padding-left: 0;}
+        #section033 ul {display: flex;  justify-content: center; padding-left: 0; flex-wrap: wrap;}
 
         #section011 li {
             list-style: none;
@@ -433,6 +438,38 @@
             height: 24px;
             color: #888;
         }
+
+        @media screen and (max-width: 800px) {
+            
+            #WebLayout, #all01 {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                
+            }
+          
+            #menu button{display: none;}
+            
+            #quick_menu {display: none;}
+
+            #section011 ul {width: 600px;}
+            #section011 li { width: 100%;}
+            img {display: none;}
+
+            #section022 div {border: none;}
+
+            #section022 select {    
+            border: 1px solid black;
+            float: left;
+            width: 100px;
+        }
+            #section022 input {
+            float: left;
+            border: 1px solid rgb(0, 0, 0);
+            width: 325px;
+        }
+
+        }
 </style>
 </head>
 <body>
@@ -450,21 +487,23 @@
     <div id="WebLayout">
         <header>
             <div id="top">
-                <a href="NUBIZIO_MAIN_media_query.html"><img src="img01/누비지오.jpeg"></a>
+                <a href="NUBIZIO_MAIN_media_query.html">
+                    <img src="img01/누비지오.jpeg">
+                </a>
                 <div id="usermenu">
-                    <a href="누비지오_로그인.html">로그인</a> |
+                    <a href="누비지오_로그인_모바일.html">로그인</a> |
                     <a href="Nubizio.Signup.오상은.html">회원가입</a> |
                     <div class="dropmain">
                         <a>마이페이지▼</a>
                         <div class="sub">
-                            <a href="$">회원정보</a>
                             <a href="$">장바구니</a>
-                            <a href="$">관심상품</a>
+                            <a href="$">내쇼핑정보</a>
+                            <a href="$">회원정보</a>
                             <a href="$">적립금</a>
                             <a href="$">쿠폰</a>
                         </div>
                     </div> |
-                    <a href="누비지오_고객센터_합본.html">고객만족센터</a> |
+                    <a href="누비지오_고객센터_합본모바일.html">고객만족센터</a> |
                     <div class="dropmain">
                         <a>커뮤니티▼</a>
                         <div class="sub">
@@ -484,6 +523,15 @@
                         <a href="@">신상품</a>
                         <a href="@">인기 상품</a>
                         <a href="@">후기많은상품</a>
+                    </div>
+                </div>
+                <div class="dropmain">
+                    <button type="button">주제별</button>
+                    <div class="sub2">
+                        <a href="@">노컨셉</a>
+                        <a href="@">자체제작</a>
+                        <a href="@">키즈</a>
+                        <a href="@">누-울렛</a>
                     </div>
                 </div>
                 <div class="dropmain">
