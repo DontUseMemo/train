@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function solution(s) {
+            let answer = '';
+            let a = [];
+            let stringToArray = s.split(" ");
+            for (let i=0; i<stringToArray.length; i++) {
+                a = Array.from(stringToArray[i]);
+                for (let b=0; b<a.length; b++) {
+                    if(b%2==0) {
+                        answer += a[b].toUpperCase();
+                    }
+                    else {
+                        answer += a[b].toLowerCase();
+                    }
+                }
+                answer += ' ';
+                a = [];       
+            }
+            answer = answer.slice(0,-1);
+            return answer;
+        }
+
+        function solution(s) {
+            let answer = '';
+            let index = 0;
+            for (let i=0; i<s.length; i++) {
+                if (s[i]===" ") {
+                    index = 0;
+                    answer += " ";
+                }
+                else {
+                    if (index%2===0) {
+                        answer += s[i].toUpperCase();
+                        index = index + 1;
+                    }
+                    else {
+                        answer += s[i].toLowerCase();
+                        index = index + 1;
+                    }
+                }
+            } return answer
+        }
+        s = "try hello world";
+        document.write(solution(s));
+    </script>
+</body>
+</html>

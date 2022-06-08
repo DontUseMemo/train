@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="carname"></p>
+    <p id="carcolor"></p>
+    <p id="carspeed"></p>
+    <script>
+        let car={
+            name: 'Sonata',
+            speed: 50,
+            color: 'white',
+            start: function() {
+                return this.speed+10;
+            }
+        };
+        let cname=document.getElementById("carname");
+        cname.textContent=car.name;
+        let colname=document.getElementById("carcolor");
+        colname.textContent=car.color;
+        let cspeed=document.getElementById("carspeed");
+        cspeed.textContent=car.start();
+    </script>
+</body>
+</html>
