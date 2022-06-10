@@ -10,55 +10,35 @@
     <script>
         function solution(answers) {
             let answer = [];
-            let student01 = [];
-            let student02 = [];
-            let student03 = [];
-            for (let n=1; n<=10000; n++) {
-                for (let a=1; a<=5; a++) {
-                    student01.push(a);
+            let arr = [];
+            let student01 = [1, 2, 3, 4, 5];
+            let student02 = [2, 1, 2, 3, 2, 4, 2, 5];
+            let student03 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+            let count01 = 0;
+            let count02 = 0;
+            let count03 = 0;
+            let math;
+            for (let i=0; i<answers.length; i++) {
+                if (student01[i%student01.length]===answers[i]) {
+                    count01++
                 }
-                for (let b=1; b<=5; b++) {
-                    if (b!==2) {
-                        student02.push(2);
-                        student02.push(b);
-                    }
-                    else {
-                        continue
-                    }
+                if (student02[i%student02.length]===answers[i]) {
+                    count02++
                 }
-                for (let c=1; c<=5; c++) {
-                    if (c===1) {
-                        student03.push(3);
-                        student03.push(3);
-                    }
-                    else if (1<c<4) {
-                        student03.push(c-1);
-                        student03.push(c-1);
-                    }
-                    else {
-                        student03.push(c+1);
-                        student03.push(c+1);
-                    }
+                if (student03[i%student03.length]===answers[i]) {
+                    count03++
                 }
             }
-            a=1;
-            b=1;
-            c=1;
-            for (let i=1; i<=5; i++) {
-                
+            arr.push(count01,count02,count03)
+            for (i=1; i<=arr.length; i++) {
+                if (arr[i-1]===Math.max(...arr)) {
+                    answer.push(i);
+                }
             }
+            answer.sort((a,b) => a-b);
+            return answer
         }
-        // function solution(answers) {
-        //     let answer = [];
-        //     let array = [];
-        //     let student01 = [1, 2, 3, 4, 5];
-        //     let student02 = [2, 1, 2, 3, 2, 4, 2, 5];
-        //     let stuennt03 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-        //     let math;
-
-        //     return answer
-        // }
-        let answers = [1,2,3,4,5];
+        let answers = [1,2,3,4,5,1,2,3];
         // let answers = [1,3,2,4,2];
         document.write(solution(answers));
     </script>
