@@ -9,13 +9,39 @@
 <body>
     <script>
         function solution(n,m) {
-            answer = [];
-            arr = [];
-            for (let i=1; i<=n; i++) {
-                
+            let answer = [];
+            let arr1 = [];
+            let arr2 = [];
+            for (let i=n; i>0; i--) {
+                if (n%i===0) {
+                    if (m%i===0) {
+                        answer.push(i)
+                        break
+                    }
+                }
             }
-            return answer;
+            for (i=1; i<=m; i++) {
+                arr1.push(n*i)
+            }
+            for (i=1; i<=n; i++) {
+                arr2.push(m*i)
+            }
+            for (i=0; i<arr2.length; i++) {
+                for (let index=0; index<arr1.length; index++) {
+                    if (arr1[index]===arr2[i]) {
+                        answer.push(arr1[index])
+                        break
+                    }
+                }
+                if (answer.length===2) {
+                    break
+                }
+            }
+            return answer
         }
+        let n = 2;
+        let m = 5;
+        document.write(solution(n,m))
     </script>
 </body>
 </html>
