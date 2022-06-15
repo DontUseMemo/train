@@ -1,4 +1,4 @@
-package STUDYJAVA;
+package JAVA;
 import java.util.ArrayList;
 
 class hello {
