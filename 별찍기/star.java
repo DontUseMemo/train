@@ -10,6 +10,7 @@ public class star {
         sqare.calcReverseTri(numx, numy);
         sqare.calcTri(numx, numy);
         sqare.calcrhombus(numx, numy);
+        sqare.round(numx, numy);
 
     }
 }

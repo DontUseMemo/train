@@ -12,11 +12,11 @@ public class Battle {
         Hero hero = new Hero("김용사");
         
         //용사 무기 배열
-        Fist[] weapons = new Fist[4];
-        weapons[0] = new Fist();
-        weapons[1] = new Short_sword();
-        weapons[2] = new Long_sword();
-        weapons[3] = new Lanse();
+        Fist[] weapones = new Fist[4];
+        weapones[0] = new Fist();
+        weapones[1] = new Short_sword();
+        weapones[2] = new Long_sword();
+        weapones[3] = new Lanse();
 
         //슬라임 파티 생성
         ArrayList<Slime> slimes = new ArrayList<Slime>(3);
