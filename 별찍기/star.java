@@ -6,11 +6,12 @@ public class star {
         int numx = 7;
         int numy = 7;
         
-        sqare.calcTriagle(numx, numy);
-        sqare.calcReverseTri(numx, numy);
-        sqare.calcTri(numx, numy);
-        sqare.calcrhombus(numx, numy);
-        sqare.round(numx, numy);
+        // sqare.calcTriagle(numx, numy);
+        // sqare.calcReverseTri(numx, numy);
+        // sqare.calcTri(numx, numy);
+        // sqare.calcrhombus(numx, numy);
+        // sqare.round(numx, numy);
+        hard.Triangle();
 
     }
 }
