@@ -2,7 +2,14 @@ package 인터페이스;
 
 
 import 인터페이스.test20220706.exam01_field_polymorphism.*;
+import 인터페이스.문제3번_진짜_제발.Channel_change;
+import 인터페이스.문제3번_진짜_제발.Favorite_ch;
+import 인터페이스.문제3번_진짜_제발.Save;
+import 인터페이스.문제3번_진짜_제발.User;
 import 인터페이스.문제7.*;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] arg) {
@@ -43,21 +50,29 @@ public class Main {
 //
 //        myCar.run();
 
-        Human me = new Human("망고","용식");
-        Human you = new Human("포도","성식");
-        Human yours = new Human("사과","상속");
-
-        Food food[] = {
-                new Candy(),
-                new Jelly(),
-                new Snack(),
-        };
-
-        Food lunch = food[2];
-
-        me.choice(lunch);
-        me.jelly_select(lunch);
-        me.eating(lunch);
+//        Human Lee = new Human("망고","용식");
+//        Human Park = new Human("포도","성식");
+//        Human Kim = new Human("사과","상속");
+//
+//        Food food[] = {
+//                new Candy(),
+//                new Jelly(),
+//                new Snack(),
+//        };
+//
+//        Food sweets = food[0];
+//
+//        Kim.choice(sweets);
+//        Kim.jelly_select(sweets);
+//        Kim.eating(sweets);
+        //-----------------------------------------
+        int[] cha = {1,2,2,2,3,3};
+        User Kim = new User("김용식",1234,cha);
+        Kim.initial_ch(Kim);
+        Kim.login();
+        Kim.ch_change(Kim);
+        Kim.ch_save(Kim);
+        Kim.ch_change(Kim);
 
     }
 }

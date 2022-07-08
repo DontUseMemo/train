@@ -11,7 +11,7 @@ public class Human extends Jelly implements Choose, Eat {
 
     public void jelly_select(Food a) {
         if (a instanceof Jelly) {
-            System.out.println(this.name + "이(가) 고른 젤리는 " + this.jelly_flavor + "입니다.");
+            System.out.println(this.name + "이가 고른 젤리맛은 " + this.jelly_flavor + "입니다.");
         }
     }
 }
