@@ -1,16 +1,31 @@
 package 인터페이스.test20220706.exam05_instanceof;
 
 import 인터페이스.test20220706.exam05_instanceof.운전자.Beginner;
+import 인터페이스.test20220706.exam05_instanceof.운전자.Driver;
 import 인터페이스.test20220706.exam05_instanceof.운전자.Expert;
 import 인터페이스.test20220706.exam05_instanceof.운전자.Intermediate;
+import 인터페이스.test20220706.exam05_instanceof.위치.Cheonan;
+import 인터페이스.test20220706.exam05_instanceof.위치.Highway;
+import 인터페이스.test20220706.exam05_instanceof.위치.Seoul;
 
 public class DriverExample {
 	public static void main(String[] args) {
-//		Driver driver = new Driver();
-		
+		Driver driver = new Expert();
 		Bus bus = new Bus();
 		Taxi taxi = new Taxi();
-		Beginner Kim = new Beginner();
+
+		Driver[] driver_type = {
+			new Beginner(),
+			new Intermediate(),
+			new Expert()
+		};
+
+		driver.drive(bus);
+		Cheonan.cheonan_entry(driver_type,driver);
+		Highway.highway_entry(driver_type,driver);
+		bus.payment();
+		Seoul.seoul_entry(driver_type,driver);
+
 
 //		driver.drive(bus);
 //		driver.drive(taxi);

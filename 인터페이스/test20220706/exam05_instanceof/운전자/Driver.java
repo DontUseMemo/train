@@ -5,10 +5,10 @@ import 인터페이스.test20220706.exam05_instanceof.Taxi;
 import 인터페이스.test20220706.exam05_instanceof.Vehicle;
 
 public abstract class Driver {
-	public String name;
+	public String name = "김용식";
 	public int money;
+	public String driver_level;
 	public int speed;
-	public String drive_level;
 	public void drive(Vehicle vehicle) {
 		if(vehicle instanceof Bus) {
 			Bus bus = (Bus) vehicle;
@@ -18,7 +18,27 @@ public abstract class Driver {
 		}
 		vehicle.run();
 	}
-	public void going() {
-		System.out.println(drive_level + " 입니다. " + speed + "km 이하로 달립니다.");
+
+	public void running() {
+		if(this.speed <= 60) {
+			System.out.println(speed + "km 이하로 달립니다. " + driver_level + "의 속도입니다.");
+		} else {
+			System.out.println(speed + "km 이상으로 달립니다. " + driver_level + "의 속도입니다.");
+		}
 	}
+
+	public String getDriver_level() {
+		return this.driver_level;
+	}
+	public int getSpeed() {
+		return this.speed;
+	}
+	public void setDriver_level(String input_level) {
+		this.driver_level = input_level;
+	}
+	public void setSpeed(int input_speed) {
+		this.speed = input_speed;
+	}
+
+
 }
