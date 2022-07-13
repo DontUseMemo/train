@@ -2,10 +2,7 @@ package 인터페이스;
 
 
 import 인터페이스.test20220706.exam01_field_polymorphism.*;
-import 인터페이스.문제3번_진짜_제발.Channel_change;
-import 인터페이스.문제3번_진짜_제발.Favorite_ch;
-import 인터페이스.문제3번_진짜_제발.Save;
-import 인터페이스.문제3번_진짜_제발.User;
+import 인터페이스.문제3번_proto02.*;
 import 인터페이스.문제7.*;
 
 import java.util.ArrayList;
@@ -66,13 +63,33 @@ public class Main {
 //        Kim.jelly_select(sweets);
 //        Kim.eating(sweets);
         //-----------------------------------------
-        int[] cha = {1,2,2,2,3,3};
-        User Kim = new User("김용식",1234,cha);
-        Kim.initial_ch(Kim);
-        Kim.login();
-        Kim.ch_change(Kim);
-        Kim.ch_save(Kim);
-        Kim.ch_change(Kim);
+//        int[] cha = {1,2,2,2,3,3};
+//        User Kim = new User("김용식",1234,cha);
+//        Kim.initial_ch(Kim);
+//        Kim.login();
+//        Kim.ch_change(Kim);
+//        Kim.ch_save(Kim);
+//        Kim.ch_change(Kim);
 
+        User_proto user = new User_proto();
+        smartTV(user);
+
+    }
+
+    public static void smartTV(User_proto a) {
+        int i = 0;
+        while(i<6) {
+            Channel_change.initial_ch(a);
+            System.out.println("-----------------");
+            User_proto confirmed_user = a.user_login_id();
+            System.out.println("-----------------");
+            a.ch_save(confirmed_user);
+            System.out.println("-----------------");
+            Channel_change.ch_change(confirmed_user);
+            System.out.println("-----------------");
+            confirmed_user.user_logout();
+            System.out.println("=================\n");
+            i++;
+        }
     }
 }
