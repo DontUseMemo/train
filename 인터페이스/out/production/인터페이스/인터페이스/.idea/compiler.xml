@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="CompilerConfiguration">
-    <excludeFromCompile>
-      <file url="file://$PROJECT_DIR$/문제_3번_proto/SmartTV.java" />
-    </excludeFromCompile>
-  </component>
-</project>
