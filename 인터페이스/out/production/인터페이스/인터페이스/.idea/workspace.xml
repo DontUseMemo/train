@@ -1,32 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b7de43d6-0478-4edb-835e-faecaa349e96" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/Warrior.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/inven/potion/Potion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/inven/potion/RedPotion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/object/DistanceChildClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/object/DistanceParentClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/slime/NormalSlime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/slime/RedSlime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/slime/actionSlime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/slime/actionSlimeBludslime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/slime/actionSlimeRedslime.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220629/package0004_gameSlimeLand/slime/slime_notUse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam01_abstract_class/Phone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam01_abstract_class/PhoneExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam01_abstract_class/SmartPhone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam02_abstract_method/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam02_abstract_method/AnimalExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam02_abstract_method/Cat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220630/exam02_abstract_method/Dog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220701_multi_implement/RemoteControl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220701_multi_implement/RemoteControlExample.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220701_multi_implement/Searchable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220701_multi_implement/SmartTelevision.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../example_20220712_highwayChangeDriver" beforeDir="false" />
+    <list default="true" id="b7de43d6-0478-4edb-835e-faecaa349e96" name="Changes" comment="시험문제 작성">
+      <change beforePath="$PROJECT_DIR$/../선생님 자바 강의 예시/example_20220712_highwayChangeDriver" beforeDir="false" afterPath="$PROJECT_DIR$/../선생님 자바 강의 예시/example_20220712_highwayChangeDriver" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test20220706/exam05_instanceof/DriverExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/test20220706/exam05_instanceof/DriverExample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test20220706/exam05_instanceof/운전자/Beginner.java" beforeDir="false" afterPath="$PROJECT_DIR$/test20220706/exam05_instanceof/운전자/Beginner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test20220706/exam05_instanceof/운전자/Expert.java" beforeDir="false" afterPath="$PROJECT_DIR$/test20220706/exam05_instanceof/운전자/Expert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test20220706/exam05_instanceof/위치/Cheonan.java" beforeDir="false" afterPath="$PROJECT_DIR$/test20220706/exam05_instanceof/위치/Cheonan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +132,7 @@
       <workItem from="1657692994037" duration="2653000" />
       <workItem from="1657697508829" duration="6329000" />
       <workItem from="1657768035997" duration="473000" />
-      <workItem from="1657868580625" duration="350000" />
+      <workItem from="1657868580625" duration="3439000" />
     </task>
     <task id="LOCAL-00001" summary="Changes">
       <created>1657120856844</created>
@@ -181,7 +162,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657603423844</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="시허문제 작성">
+      <created>1657871191088</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657871191088</updated>
+    </task>
+    <task id="LOCAL-00006" summary="시험문제 작성">
+      <created>1657871342836</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657871342836</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +195,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+    <MESSAGE value="시허문제 작성" />
+    <MESSAGE value="시험문제 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="시험문제 작성" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

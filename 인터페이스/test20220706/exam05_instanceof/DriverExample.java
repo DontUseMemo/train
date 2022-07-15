@@ -21,7 +21,7 @@ public class DriverExample {
 		};
 
 		driver.drive(bus);
-		Cheonan.cheonan_entry(driver_type,driver);
+//		Cheonan.cheonan_entry(driver_type,driver);
 		Highway.highway_entry(driver_type,driver);
 		bus.payment();
 		Seoul.seoul_entry(driver_type,driver);
