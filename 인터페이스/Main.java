@@ -1,9 +1,9 @@
 package 인터페이스;
 
 
-import 인터페이스.test20220706.exam01_field_polymorphism.*;
 import 인터페이스.문제3번_proto02.*;
 import 인터페이스.문제7.*;
+import 인터페이스.시험풀이.Solution02;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -71,8 +71,11 @@ public class Main {
 //        Kim.ch_save(Kim);
 //        Kim.ch_change(Kim);
 
-        User_proto user = new User_proto();
-        smartTV(user);
+//        User_proto user = new User_proto();
+//        smartTV(user);
+
+        Solution02 sol = new Solution02();
+        sol.drive();
 
     }
 
