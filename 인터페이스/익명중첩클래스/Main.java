@@ -7,7 +7,12 @@ public class Main {
         annonymous.person.wake();
         System.out.println("------");
         annonymous.method2(2);
-
-
+        annonymous.method3(
+            new Person() {
+                @Override
+                public void wake() {
+                    System.out.println("오늘은 늦게 일어나도되니까 12시에 일어나야지!");
+                }
+        });
     }
 }

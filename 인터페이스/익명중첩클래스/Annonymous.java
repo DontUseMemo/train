@@ -50,4 +50,8 @@ public class Annonymous extends Person {
         //익명객체의 라이프 사이클 end
         a.wake();
     }
+
+    public void method3(Person person) {
+        person.wake();
+    }
 }
