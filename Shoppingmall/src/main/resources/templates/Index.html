@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+<!--    <link rel="favicon" href="/static/img/ico/favicon.ico">-->
     <title>Title</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
     <hr>
     <h1>회원가입</h1>
     <form method="POST" action="/account">
-        <input tyep="text" name="id1" th:value="${id2}" />
+        <input type="text" name="id1" th:value="${id2}" />
         <input type="submit" value="Click" />
     </form>
 </body>

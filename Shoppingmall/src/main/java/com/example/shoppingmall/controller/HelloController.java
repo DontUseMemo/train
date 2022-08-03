@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class HelloController {
 
-    private final static String main = "index";
+    private final static String main = "Index";
     private final static String err = "error";
     private final static String account = "account";
     private final static String slimeView = "slimeState";
@@ -39,11 +39,11 @@ public class HelloController {
         model.addAttribute("intTest", 30000);
         //static으로 선언한 문자열 변수를 return하여 String 메모리 절약
         return account;
-        //VeuwResolver를 통해 html확장자를 가진 제목의 문서를 비교해서 찾아감
+        //VeiwResolver를 통해 html확장자를 가진 제목의 문서를 비교해서 찾아감
     }
 
     @RequestMapping("/")
-    public String index() {return main;};
+    public String index() {return main;}
 
     //중괄호 {}안에 데이터를 컨트롤러에 전달 = url 이라는 변수의 데이터를 전달
     //@RequestMapping 어노테이션의 url정보를 갖고 있기 때문에
