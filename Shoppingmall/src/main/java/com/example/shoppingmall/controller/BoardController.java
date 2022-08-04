@@ -11,6 +11,11 @@ import java.util.List;
 
 @Controller
 public class BoardController {
+    //클라이언트에서 서버로 무언가 데이터를 전송하기 위한 Mapping (@RequestMapping)
+//    @RequestMapping(insertBoard)
+//    public String insertBoard(Model model) {
+//        return "insertBoard";
+//    }
 
     @RequestMapping("/getBoardList")
     public String getBoardList(Model model) {
