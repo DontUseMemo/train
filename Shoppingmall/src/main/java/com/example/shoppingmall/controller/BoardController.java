@@ -16,14 +16,14 @@ import java.util.List;
 public class BoardController {
 
     //step1. 일반 문자열 변수 사용
-    static String title_string_static = "";
-    static String writer_string_static = "";
-    static String content_string_static = "";
-
-    //step2. 배열 객체 사용
-    static ArrayList<String> title_array = new ArrayList<String>();
-    static ArrayList<String> writer_array = new ArrayList<String>();
-    static ArrayList<String> content_array = new ArrayList<String>();
+//    static String title_string_static = "";
+//    static String writer_string_static = "";
+//    static String content_string_static = "";
+//
+//    //step2. 배열 객체 사용
+//    static ArrayList<String> title_array = new ArrayList<String>();
+//    static ArrayList<String> writer_array = new ArrayList<String>();
+//    static ArrayList<String> content_array = new ArrayList<String>();
 
     //step3. 사용자 생성 객체 사용
     static ArrayList<Board> board_array = new ArrayList<Board>();
@@ -41,15 +41,15 @@ public class BoardController {
     public String insertBoard(
             @RequestParam("title")String title,
             @RequestParam("writer")String writer,
-            @RequestParam("content")String content,
-            Model model) {
-        title_string_static = title;
-        writer_string_static = writer;
-        content_string_static = content;
-
-        title_array.add(title);
-        writer_array.add(writer);
-        content_array.add(content);
+            @RequestParam("content")String content
+            ) {
+//        title_string_static = title;
+//        writer_string_static = writer;
+//        content_string_static = content;
+//
+//        title_array.add(title);
+//        writer_array.add(writer);
+//        content_array.add(content);
 
         count++;
         Board board = new Board();
@@ -80,6 +80,7 @@ public class BoardController {
     //서버의 리소스 감소 및 보안을 위해서 이다
     @GetMapping("/getBoard")
     public String getBoard(
+            @RequestParam("seq")String seq,
             @RequestParam("userRole")String userRole,
             @RequestParam("userId")String userId,
             @RequestParam("title")String title,
@@ -88,6 +89,7 @@ public class BoardController {
             @RequestParam("createDate")String createDate,
             @RequestParam("cnt")String cnt,
             Model model) {
+        model.addAttribute("seq", seq);
         model.addAttribute("title", title);
         model.addAttribute("writer", writer);
         model.addAttribute("content", content);
@@ -108,26 +110,33 @@ public class BoardController {
         // = 대입연산자로 heap메모리에 ArrayLsit타입으로 할당
         //List는 ArrayList의 부모클래스
         List<Board> boardList = new ArrayList<Board>();
-
         //title_array.size()로 게시판 글이 1개 이상일 경우에만 model에 데이터 입력하여
         //[클라이언트]에 전달
-        if(title_array.size() > 0) {
-            for (int i = 0; i < title_array.size(); i++) {
-                //Board 클래스로 board인스턴스 생성
+        if(board_array.size() > 0) {
+            for (int i = 0; i < board_array.size(); i++) {
+//                //Board 클래스로 board인스턴스 생성
+//                Board board = new Board();
+//                //롬북으로 자동생성된 seter메서드로 데이터 입력
+//                board.setSeq(new Long(i)+1);
+//                //매개변수 title_array.get(i)은 BoardController의 필드인
+//                //title_array, writer_array, content_array의 값을 순회하여 출력(get(i));
+//                //board.setter를 통해서 board객체에 데이터 입력
+//                board.setTitle(board_array.get(i).getTitle());
+//                board.setWriter(board_array.get(i).getWriter());
+//                board.setContent(board_array.get(i).getContent());
+//                //내장 클래스인 java.util.Date 객체로 시간 데이터 출력
+//                board.setCreateDate(new Date());
+//                board.setCnt(0L);
+//                //boardList배열에 board객체 넣기 (for문 10번 도니까 board객체 10개 넣기
+//                //이 주석은 수정전 주석이다.
+//                boardList.add(board);
                 Board board = new Board();
-                //롬북으로 자동생성된 seter메서드로 데이터 입력
-                board.setSeq(new Long(i)+1);
-                //매개변수 title_array.get(i)은 BoardController의 필드인
-                //title_array, writer_array, content_array의 값을 순회하여 출력(get(i));
-                //board.setter를 통해서 board객체에 데이터 입력
-                board.setTitle(title_array.get(i));
-                board.setWriter(writer_array.get(i));
-                board.setContent(content_array.get(i));
-                //내장 클래스인 java.util.Date 객체로 시간 데이터 출력
-                board.setCreateDate(new Date());
-                board.setCnt(0L);
-                //boardList배열에 board객체 넣기 (for문 10번 도니까 board객체 10개 넣기
-                //이 주석은 수정전 주석이다.
+                board.setSeq(board_array.get(i).getSeq());
+                board.setTitle(board_array.get(i).getTitle());
+                board.setWriter(board_array.get(i).getWriter());
+                board.setContent(board_array.get(i).getContent());
+                board.setCreateDate(board_array.get(i).getCreateDate());
+                board.setCnt(board_array.get(i).getCnt());
                 boardList.add(board);
             }
         }
@@ -142,4 +151,43 @@ public class BoardController {
         return "getBoardList";
     }
 
+    @GetMapping("/deleteBoard")
+    public String deleteBoard(@RequestParam("seq")String seq) {
+        //seq변수 (getBoard.html에서 받아옴)로 board_array 배열에서
+        //.getSeq로 같은 index로 찾아 board_array에 있는 board객체 삭제 >> 게시글 삭제
+        for(int i = 0; i < board_array.size(); i++) {
+            //borad_array.get(i).getSeq() : board_array의 i번째 객체를 찾아서 getSeq()메서드를 통해 seq필드값 가져오기
+            //equals()메서드를 통해서 매개변수 seq값과 비교 (참조 타입이므로)
+            //seq 타입은 Long입니다, 소수점있는 데이터(숫자)이므로 매개변수 seq(String)과 같은 타입이 아니므로 바교 불가
+            //board_array.get(i).getSeq()의 값 Long을 String으로 변환 = Long.toString()
+            if(Long.toString(board_array.get(i).getSeq()).equals(seq)) {
+                System.out.println(board_array.get(i).getSeq());
+                //board_array(i)번째 객체 삭제
+                board_array.remove(i);
+            }
+        }
+        return "redirect:getBoardList";
+    }
+
+    //Post 방식으로 [클라이언트]에서 [서버]로 맵핑
+    //HTML에서 name속성을 가진 값을 매개변수 String seq에 할당 = @RequestParam("seq")
+    //board_array배열을 순회하여 board객체의 seq필드값을 매개변수 seq와 비교하여 true값 찾기
+    //setTitle과 같은 setter로 데이터 변경경
+    @PostMapping("/updateBoard")
+    public String updateBoard(
+            @RequestParam("seq")String seq,
+            @RequestParam("title")String title,
+            @RequestParam("content")String content
+            ) {
+        System.out.println("실행");
+        for (int i = 0; i < board_array.size(); i++) {
+            System.out.println("포문으로 들어옴");
+            if (Long.toString(board_array.get(i).getSeq()).equals(seq)) {
+                System.out.println("이프문");
+                board_array.get(i).setTitle(title);
+                board_array.get(i).setContent(content);
+            }
+        }
+        return "redirect:getBoardList";
+    }
 }
