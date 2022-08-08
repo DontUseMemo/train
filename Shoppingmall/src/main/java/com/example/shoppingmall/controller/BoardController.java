@@ -15,16 +15,6 @@ import java.util.List;
 @Controller
 public class BoardController {
 
-    //step1. 일반 문자열 변수 사용
-//    static String title_string_static = "";
-//    static String writer_string_static = "";
-//    static String content_string_static = "";
-//
-//    //step2. 배열 객체 사용
-//    static ArrayList<String> title_array = new ArrayList<String>();
-//    static ArrayList<String> writer_array = new ArrayList<String>();
-//    static ArrayList<String> content_array = new ArrayList<String>();
-
     //step3. 사용자 생성 객체 사용
     static ArrayList<Board> board_array = new ArrayList<Board>();
     static int count = 0;
@@ -35,6 +25,16 @@ public class BoardController {
         return "insertBoard";
     }
 
+    /**
+     * Board domain CONTROLLER
+     * @param category HTML에서 받아온 데이터
+     * @param title
+     * @param writer
+     * @param content
+     * @return
+     * @author 김춘수
+     * @version 20220808.0.0.1
+     */
     //[클라이언트]html form태그의 method속성의 값인 post를 인식하여 아래의
     //@PostMapping에 연결
     @PostMapping("/insertBoard")
@@ -44,14 +44,6 @@ public class BoardController {
             @RequestParam("writer")String writer,
             @RequestParam("content")String content
             ) {
-//        title_string_static = title;
-//        writer_string_static = writer;
-//        content_string_static = content;
-//
-//        title_array.add(title);
-//        writer_array.add(writer);
-//        content_array.add(content);
-
         count++;
         Board board = new Board();
 
