@@ -12,6 +12,7 @@ import java.util.Date;
 @ToString
 public class Board {
     private Long seq;
+    private String category;
     private String title;
     private String writer;
     private String content;

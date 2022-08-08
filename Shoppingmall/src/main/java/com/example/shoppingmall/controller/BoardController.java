@@ -39,6 +39,7 @@ public class BoardController {
     //@PostMapping에 연결
     @PostMapping("/insertBoard")
     public String insertBoard(
+            @RequestParam("category")String category,
             @RequestParam("title")String title,
             @RequestParam("writer")String writer,
             @RequestParam("content")String content
@@ -55,6 +56,7 @@ public class BoardController {
         Board board = new Board();
 
         board.setSeq((long)count);
+        board.setCategory(category);
         board.setTitle(title);
         board.setWriter(writer);
         board.setContent(content);
@@ -81,6 +83,7 @@ public class BoardController {
     @GetMapping("/getBoard")
     public String getBoard(
             @RequestParam("seq")String seq,
+            @RequestParam("category")String category,
             @RequestParam("userRole")String userRole,
             @RequestParam("userId")String userId,
             @RequestParam("title")String title,
@@ -90,6 +93,7 @@ public class BoardController {
             @RequestParam("cnt")String cnt,
             Model model) {
         model.addAttribute("seq", seq);
+        model.addAttribute("category",category);
         model.addAttribute("title", title);
         model.addAttribute("writer", writer);
         model.addAttribute("content", content);
@@ -132,6 +136,7 @@ public class BoardController {
 //                boardList.add(board);
                 Board board = new Board();
                 board.setSeq(board_array.get(i).getSeq());
+                board.setCategory(board_array.get(i).getCategory());
                 board.setTitle(board_array.get(i).getTitle());
                 board.setWriter(board_array.get(i).getWriter());
                 board.setContent(board_array.get(i).getContent());
@@ -176,14 +181,13 @@ public class BoardController {
     @PostMapping("/updateBoard")
     public String updateBoard(
             @RequestParam("seq")String seq,
+            @RequestParam("category")String category,
             @RequestParam("title")String title,
             @RequestParam("content")String content
             ) {
-        System.out.println("실행");
         for (int i = 0; i < board_array.size(); i++) {
-            System.out.println("포문으로 들어옴");
             if (Long.toString(board_array.get(i).getSeq()).equals(seq)) {
-                System.out.println("이프문");
+                board_array.get(i).setCategory(category);
                 board_array.get(i).setTitle(title);
                 board_array.get(i).setContent(content);
             }

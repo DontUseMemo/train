@@ -10,6 +10,7 @@
 <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
     <tr>
         <th bgcolor="orange" width="100">번호</th>
+        <th bgcolor="orange" width="100">분류</th>
         <th bgcolor="orange" width="200">제목</th>
         <th bgcolor="orange" width="150">작성자</th>
         <th bgcolor="orange" width="150">등록일</th>
@@ -21,6 +22,7 @@
     <tr th:each="board :${boardList}">
         <!--        <td th:text="${state.count}"></td>-->
         <td th:text="${board.seq}"></td>
+        <td th:text="${board.category}"></td>
         <!--
         a태그를 사용하여 링크를 만들고,
         @{/getBoard로 controller에 mapping 주소를 직시
@@ -29,6 +31,7 @@
         -->
         <td> <a th:href="@{/getBoard(
                                 seq=${board.seq},
+                                category=${board.category},
                                 userId='userIdTeste',
                                 userRole='userIdRole',
                                 title=${board.title},
