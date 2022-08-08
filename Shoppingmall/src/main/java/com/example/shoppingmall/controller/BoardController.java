@@ -110,28 +110,16 @@ public class BoardController {
         //[클라이언트]에 전달
         if(board_array.size() > 0) {
             for (int i = 0; i < board_array.size(); i++) {
-//                //Board 클래스로 board인스턴스 생성
-//                Board board = new Board();
-//                //롬북으로 자동생성된 seter메서드로 데이터 입력
-//                board.setSeq(new Long(i)+1);
-//                //매개변수 title_array.get(i)은 BoardController의 필드인
-//                //title_array, writer_array, content_array의 값을 순회하여 출력(get(i));
-//                //board.setter를 통해서 board객체에 데이터 입력
-//                board.setTitle(board_array.get(i).getTitle());
-//                board.setWriter(board_array.get(i).getWriter());
-//                board.setContent(board_array.get(i).getContent());
-//                //내장 클래스인 java.util.Date 객체로 시간 데이터 출력
-//                board.setCreateDate(new Date());
-//                board.setCnt(0L);
-//                //boardList배열에 board객체 넣기 (for문 10번 도니까 board객체 10개 넣기
-//                //이 주석은 수정전 주석이다.
-//                boardList.add(board);
                 Board board = new Board();
                 board.setSeq(board_array.get(i).getSeq());
                 board.setCategory(board_array.get(i).getCategory());
                 board.setTitle(board_array.get(i).getTitle());
                 board.setWriter(board_array.get(i).getWriter());
-                board.setContent(board_array.get(i).getContent());
+                if (board_array.get(i).getContent().length() >= 20) {
+                    String a = board_array.get(i).getContent();
+                    String preview = a.substring(0,19);
+                    board.setContent(preview);
+                }
                 board.setCreateDate(board_array.get(i).getCreateDate());
                 board.setCnt(board_array.get(i).getCnt());
                 boardList.add(board);

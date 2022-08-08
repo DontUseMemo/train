@@ -3,6 +3,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/reply.css">
     <title>게시 글 목록</title>
 </head>
 <body th:align="center">
@@ -13,6 +14,7 @@
         <th bgcolor="orange" width="100">분류</th>
         <th bgcolor="orange" width="200">제목</th>
         <th bgcolor="orange" width="150">작성자</th>
+        <th bgcolor="orange" width="300" class="setting">글 미리보기</th>
         <th bgcolor="orange" width="150">등록일</th>
         <th bgcolor="orange" width="100">조회수</th>
     </tr>
@@ -44,6 +46,7 @@
                 th:text="${board.title}"></a></td>
         <!--        <td th:text="${board.title}"></td>-->
         <td th:text="${board.writer}"></td>
+        <td th:text="${board.content}" class="preview"></td>
         <!--
             dates.format = 날짜를 일정형식으로 바꿔주는 포맷팅
         -->
