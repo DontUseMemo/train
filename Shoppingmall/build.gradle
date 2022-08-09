@@ -28,6 +28,11 @@ dependencies {
     //롬복추가
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    //오라클 데이터베이스 연결
+    runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
+    implementation 'com.oracle.database.security:oraclepki'
+    implementation 'com.oracle.database.security:osdt_core'
+    implementation 'com.oracle.database.security:osdt_cert'
 }
 
 //테스트 모듈에 관한 정보
