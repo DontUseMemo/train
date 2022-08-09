@@ -120,6 +120,9 @@ public class BoardController {
                     String preview = a.substring(0,19);
                     board.setContent(preview);
                 }
+                else {
+                    board.setContent(board_array.get(i).getContent());
+                }
                 board.setCreateDate(board_array.get(i).getCreateDate());
                 board.setCnt(board_array.get(i).getCnt());
                 boardList.add(board);

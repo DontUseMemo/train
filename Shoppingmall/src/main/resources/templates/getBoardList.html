@@ -24,7 +24,7 @@
     <tr th:each="board :${boardList}">
         <!--        <td th:text="${state.count}"></td>-->
         <td th:text="${board.seq}"></td>
-        <td th:text="${board.category}"></td>
+        <td th:value="${board.category}"></td>
         <!--
         a태그를 사용하여 링크를 만들고,
         @{/getBoard로 controller에 mapping 주소를 직시
