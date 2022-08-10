@@ -18,4 +18,5 @@ public class Board {
     private String content;
     private Date createDate;
     private Long cnt;
+    private String comment;
 }

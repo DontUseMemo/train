@@ -177,4 +177,15 @@ public class BoardController {
         }
         return "redirect:getBoardList";
     }
+
+    @GetMapping("/getCategory")
+    public String getCategory(@RequestParam("category")String category) {
+        List <Board> boardList = new ArrayList<Board>();
+        for (Board board : board_array) {
+            if (board.getCategory().equals(category)) {
+                boardList.add(board);
+            }
+        }
+        return "redirect:getBoardList";
+    }
 }

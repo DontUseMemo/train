@@ -18,7 +18,7 @@
             <th bgcolor="orange" th:text="분류" width="80"></th>
             <td>
                 <select name="category" th:value="${category}">
-                    <option vlaue="">카테고리</option>
+                    <option value="">카테고리</option>
                     <option value="잡담">잡담</option>
                     <option value="후기">후기</option>
                     <option value="정보">정보</option>
@@ -58,5 +58,23 @@
     </form>
     <a th:href="@{/getBoardList}">글목록</a>
     <a th:href="@{/deleteBoard(seq=${seq})}">글삭제</a>
+    <h3>댓글</h3>
+    <form>
+        <table border="1" width="300" align="center">
+            <tr>
+                <td>작성자</td>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <td colspan="2">댓글 작성</td>
+            </tr>
+            <tr>
+                <td colspan="2"><textarea cols="40" rows="10" placeholder="댓글을 작성해보세요"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="댓글등록"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
