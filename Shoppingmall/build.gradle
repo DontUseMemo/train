@@ -1,35 +1,66 @@
 plugins {
+    //프로젝트의 스프링부트 프레임워크의 버전 설정
     id 'org.springframework.boot' version '2.7.2'
+    //프로젝트에 필요한 라이브러리를 관리해주는 툴(매니지먼트)의 버전
     id 'io.spring.dependency-management' version '1.0.12.RELEASE'
+    //쓰는 언어 (python, go, 코틀린..)을 쓰면 dependency 추천과 다운
     id 'java'
 }
 
+//프로젝트 정보
 group = 'com.example'
 //첫번째 자리 : 메이저 업데이트, 두번째 자리 : 마이너 업데이트, 세번째 자리 : fix 버전 (오탈자, 이미지 변경)
 version = '0.0.1-SNAPSHOT'
+//자바 버전
 sourceCompatibility = '17'
 
+//dependency 라이브러리를 다운받은 사이트
 repositories {
     mavenCentral()
 }
 
+//라이브러리
 dependencies {
+    //compile : 자바코드를 실행가능한 바이트코드로 변경 (바이트코드로 실행하면 컴퓨터는 인식하고 실행)
+    //runtime : 실행가능한(컴파일이 완료된) 코드를 실행하는 시점
+    //인터프린트는 실시간으로 개발한 코드를 해석해서 컴퓨터가 실행하는 것
+    //라이브러리 : 갖다 쓰는 것 (자바 기본 규칙에 따름)
+    //프레임워크 : 프레임워크 독자적인 구조와 규칙에 따름
+    //유닛 테스트 (자바코드를 만들면 잘 돌아가는지 기능별로 테스트할 때 쓰는 용도)
+
     //라이브러리
     //타임리프 : springboot(백엔드)와 html을 '유연하게' 연결해주는 템플릿
     //(*) : 종속성
+    //implementation :구현된 전체에서 사용하는 라이브러리(프레임워크)
+    //devtools : 개발하는데 편리한 기능들을 집합
+
+    //타임리프 : HTML과 JAVA코드 연동하는 템플릿(단, 서버에서 사용)
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
     //stater web에 tomcat이 포함되어 있음
     //tomcat : spring 프로젝트를 웹하고 연결해주는 도구
+    //starter : 스프링부트에서 쓰는 기본 라이브러리 집합
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //JPA : Java Persistence API : 자바에서 DB와 연결되는 객체지향 API (인터페이스)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.projectlombok:lombok:1.18.22'
     implementation 'org.projectlombok:lombok:1.18.22'
+
     //테스트용 라이브러리
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     //롬복추가
+    //롬복 : 도메인(class)의 getter, setter, builder 등으로 자동으로 코드 생성(@어노테이션) (단, 컴파일에서만)
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    //오라클 데이터베이스 연결
+
+    //오라클 데이터베이스 연결에 필요한 라이브러리
+    //ojdbc8 오라클에서 제공하는 라이브러리로 JAVA와 연동하기 위해 쓰임 (8버전이 19c에 활용 가능)
     runtimeOnly 'com.oracle.database.jdbc:ojdbc8'
+    //oaclepki, osdt_core, osdt_cert 오라클과 자바 사이에서 연동되는 드라이버를 사용하기 위한 정보가 담긴 라이브러리
+    //드라이버 : 예) 그래픽카드를 컴퓨터와 연결하기 위해서 드라이버를 다운받아 (컴퓨터가 그래픽카드를 드라이버를 통해 사용)
+    //전자지갑에 있음
     implementation 'com.oracle.database.security:oraclepki'
     implementation 'com.oracle.database.security:osdt_core'
     implementation 'com.oracle.database.security:osdt_cert'
