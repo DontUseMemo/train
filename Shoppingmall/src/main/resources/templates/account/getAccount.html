@@ -15,20 +15,20 @@
             </tr>
             <tr>
                 <td>아이디</td>
-                <td><input type="text" th:value="${member.id}"></td>
+                <td><input name="id" type="text" th:value="${member.id}"></td>
             </tr>
             <tr>
                 <td>비밀번호</td>
-                <td><input type="text" th:value="${member.password}"></td>
+                <td><input name="password" type="text" th:value="${member.password}"></td>
             </tr>
             <tr>
                 <td colspan="2">
-                  <input type="button" value="수정하기">
+                  <input type="submit" value="수정하기">
                 </td>
             </tr>
         </table>
     </form>
-        <a th:href="@{/account/deleteAccount}">
+        <a th:href="@{/account/deleteAccount(seq=${member.seq})}">
             <input type="button" value="삭제하기">
         </a>
 </body>

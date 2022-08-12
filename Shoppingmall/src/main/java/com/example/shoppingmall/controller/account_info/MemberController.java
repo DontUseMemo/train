@@ -15,6 +15,7 @@ import java.util.List;
 
 //디스패처 서블릿이 컨트롤러를 찾기 위해서 @Controller라고 선언
 @Controller
+@RequestMapping(path="/account")
 public class MemberController {
     @Autowired
     private MemberService memberService;
@@ -24,7 +25,7 @@ public class MemberController {
     //getAccountList : 전체 회원 목록 보기 : 웹솔루션에서 웹시스템을 관리하는 관리자를 위한 기능
     //public : 전부공개
     //String : 이 메서드가 실행 완료되면 최종적으로 리턴하는 타입 (HTML 파일명을 찾기 위해)
-    @GetMapping("account/getAccountList")
+    @GetMapping("/getAccountList")
     public String getAccountList(Model model) {
         //model : 컨트롤러에서 작업한 결과물을 HTML에 전달하기 위한 매개체
         //addAttribute : key/value 로 데이터를 저장하는 메서드
@@ -33,31 +34,32 @@ public class MemberController {
         //getMemberList()메서드 실행
         List<Member> accountList = memberService.getMemberList();
         model.addAttribute("accountList",accountList);
-        return "account/getAccountList";
+        return "/account/getAccountList";
     }
 
     //member : 클라이언트에서 서버로 데이터를 받는 Entity
     //model : 서버에서 클라이언트로 데이터를 전송하는 매개체
-    @GetMapping("/account/getAccount")
+    @GetMapping("/getAccount")
     public String getAccount(Model model, Member member) {
         model.addAttribute("member",memberService.getMember(member));
         return "/account/getAccount";
     }
 
     //deleteAccount : 회원정보 삭제
-    @GetMapping("/account/deleteAccount")
+    @GetMapping("/deleteAccount")
     public String deleteAccount(Member member) {
         memberService.deleteMember(member);
-        return "redirect:account/getAccountList";
+        return "redirect:/account/getAccountList";
     }
 
     //updateAccount : 회원정보 수정
-    @PostMapping("account/updateAccount")
-    public String updateAccount(Member member, Model model) {
-        model.addAttribute("member",memberService.getMember(member));
-        return "account/insertAccount";
+    @PostMapping("/updateAccount")
+    public String updateAccount(Member member) {
+        memberService.updateMember(member);
+        return "redirect:/account/getAccountList";
     }
 
+    //기존 데이터의 무결성 체크를 위한 데이터 전체 조회와 일부 수정 작업
     //+백업 entity
     //회원정보가 일정 수치까지 다다르면(혹은 이벤트가 발생) updateAccountAll이라는 메서드를 통해
     //기존 entity의 테이블의 정보를 모두 백업 entity에 저장
@@ -72,7 +74,7 @@ public class MemberController {
     //속도가 느림
 
     //return 타입이 String 이유 : HTML 파일명을 찾기 위해
-    @GetMapping("account/insertAccount")
+    @GetMapping("/insertAccount")
     public String insertAccountView() {
         return "account/insertAccount";
     }
@@ -80,7 +82,7 @@ public class MemberController {
     //Member 라는 매개변수로 Controller에 전달
     //Member(Entity)이고 DTO(Data Transfer Object)
     //어디선가 받거나 만든 데이터를 객체로 만드는 것 : DTO
-    @PostMapping("account/insertAccount")
+    @PostMapping("/insertAccount")
     public String insertAccountView(Member member) {
         //클라이언트에서 ID/PW
         //createDate
@@ -89,6 +91,6 @@ public class MemberController {
         member.setCreateDate(new Date());
         member.setUpdateDate(new Date());
         memberService.insertMember(member);
-        return "Index";
+        return "redirect:/account/getAccountList";
     }
 }
