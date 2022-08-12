@@ -7,6 +7,12 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Date;
 
+//데이터 베이스에 null값이 들어갔던 이유 : 생성자를 만들지 않아서
+//@AllArgsConstructor : 모든 매개변수를 갖는 생성자
+//@NaArgsConstructor : 매개변수 없는 생성자
+//@Builder
+//혹은 @Setter를 추가
+
 //@Entity JPA 이 객체를 기준으로 table을 만들어야 한다고 선언
 @Setter
 @Getter

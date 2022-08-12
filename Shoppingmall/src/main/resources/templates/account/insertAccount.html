@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>회원가입</title>
 </head>
 <body>
 <form th:action="@{/account/insertAccount}" method="post">
     <label>아이디 <input type="text" name="id"></label>
-    <label>비밀번호 <input type="password" name="password"></label>
+    <label>비밀번호<input type="password" name="password"></label>
     <input type="submit" value="제출">
 </form>
 </body>

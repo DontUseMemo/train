@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 목록</title>
+</head>
+<body>
+    <h1>회원 목록</h1>
+    <table border="1">
+        <tr>
+            <th>번호</th>
+            <th>아이디</th>
+            <th>비밀번호</th>
+            <th>가입일자</th>
+            <th>수정일자</th>
+            <th>상세보기</th>
+        </tr>
+        <tr th:each="member : ${accountList}">
+            <td th:text="${member.seq}"></td>
+            <td th:text="${member.id}"></td>
+            <td th:text="${member.password}"></td>
+            <td th:text="${member.createDate}"></td>
+            <td th:text="${member.updateDate}"></td>
+            <td>
+<!--                    account/getAccountList에서 getAccount호출할 때-->
+<!--                    기본 시작점이 templates이기 때문에 -->
+<!--                    절대 경로일 경우 templates에서 시작하며, 상대경로이면 getAccountList페이지가 있는 폴더에서 시작-->
+<!--                    /를 앞에 붙일 경우 : 절대경로-->
+<!--                    /를 안 붙일 경우 : 상대경로-->
+                <a th:href="@{/account/getAccount(seq=${member.seq})}">
+                    <input type="button" value="정보조회">
+                </a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

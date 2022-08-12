@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보상세보기</title>
+</head>
+<body>
+<!--회원정보같은 민감데이터는 가능한 암호화와 숨김 코드로 작성이 필요-->
+    <form th:action="@{/account/updateAccount}" method="post">
+        <input name="seq" type="hidden" th:value="${member.seq}">
+        <table border="1">
+            <tr>
+                <td>번호</td>
+                <td th:text="${member.seq}"></td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" th:value="${member.id}"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="text" th:value="${member.password}"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                  <input type="button" value="수정하기">
+                </td>
+            </tr>
+        </table>
+    </form>
+        <a th:href="@{/account/deleteAccount}">
+            <input type="button" value="삭제하기">
+        </a>
+</body>
+</html>
