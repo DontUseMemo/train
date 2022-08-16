@@ -36,6 +36,8 @@ public class Member {
     @Column(length = 30, nullable = false)
     private String password;
 
+    private String email;
+
     @Temporal(TemporalType.DATE)
     private Date createDate;
 
