@@ -91,6 +91,6 @@ public class MemberController {
         member.setCreateDate(new Date());
         member.setUpdateDate(new Date());
         memberService.insertMember(member);
-        return "redirect:/account/getAccountList";
+        return "Index";
     }
 }
