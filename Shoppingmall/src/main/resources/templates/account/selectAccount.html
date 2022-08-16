@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원찾기</title>
+</head>
+<body>
+<h1>회원찾기</h1>
+<form th:action="@{/account/selectAccount}" method="post">
+<table>
+    <tr>
+        <td>아이디</td>
+        <td><input type="text" name="id"></td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td><input type="text" name="keyword"></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit" value="찾기"></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

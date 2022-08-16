@@ -1,7 +1,7 @@
 package com.example.shoppingmall.Service;
 
-import com.example.shoppingmall.model.Board;
-import com.example.shoppingmall.persistence.BoardRepository;
+import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,7 @@ public class BoardServiceImpl implements BoardService {
 
     @Autowired
     private BoardRepository boardRepo;
+
     //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시
 
     //클라이언트에서 받아온 Board객체의 데이터를 BoardRepository의 상속받은 CrudRepository의 findAll메서드를 통해서

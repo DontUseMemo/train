@@ -1,4 +1,4 @@
-package com.example.shoppingmall.model.account_info;
+package com.example.shoppingmall.entity.account_info;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.example.shoppingmall.model;
+package com.example.shoppingmall.entity;
 
 public class Slime {
     private int Hp = 50;

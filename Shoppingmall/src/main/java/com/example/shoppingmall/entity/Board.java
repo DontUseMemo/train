@@ -1,4 +1,4 @@
-package com.example.shoppingmall.model;
+package com.example.shoppingmall.entity;
 
 
 import lombok.Getter;

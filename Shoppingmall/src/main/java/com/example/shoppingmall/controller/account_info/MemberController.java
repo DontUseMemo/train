@@ -1,7 +1,7 @@
 package com.example.shoppingmall.controller.account_info;
 
 import com.example.shoppingmall.Service.account_info.MemberService;
-import com.example.shoppingmall.model.account_info.Member;
+import com.example.shoppingmall.entity.account_info.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -92,5 +91,15 @@ public class MemberController {
         member.setUpdateDate(new Date());
         memberService.insertMember(member);
         return "Index";
+    }
+
+    @GetMapping("/selectAccount")
+    public String selectAccount() { return "/account/selectAccount"; }
+
+    @PostMapping("/selectAccount")
+    public String resultAccount(String keyword, Model model) {
+        model.addAttribute("memberList",
+                memberService.getMembersContainKeyword(keyword));
+        return "/account/resultAccount";
     }
 }

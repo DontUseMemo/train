@@ -1,16 +1,24 @@
 package com.example.shoppingmall.Service.account_info;
 
-import com.example.shoppingmall.model.account_info.Member;
-import com.example.shoppingmall.persistence.account_info.MemberRepository;
+import com.example.shoppingmall.entity.account_info.Member;
+import com.example.shoppingmall.repository.account_info.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class MemberServiceImpl implements MemberService{
+    private final MemberRepository memberRepo;
+
     @Autowired
-    private MemberRepository memberRepo;
+    protected MemberServiceImpl(MemberRepository memberRepo) {this.memberRepo = memberRepo;}
+
+    @Override
+    public Member getMemberWhereIdOrEmail(String Email, String Id) {
+        return memberRepo.findMemberByEmailOrId(Email, Id);
+    }
 
     //모든 회원의 정보를 가져다 오는 것
     //return List<Member> : 모든 회원의 정보를 List 배열에 담아서 return
@@ -24,7 +32,7 @@ public class MemberServiceImpl implements MemberService{
         return (List<Member>) memberRepo.findAll();
     }
 
-    //회원 1명의 정보를 Entity에 맞춰서 DBdp wjwkd
+    //회원 1명의 정보를 Entity에 맞춰서 DBdp 조작
     @Override
     public void insertMember(Member member) {
         memberRepo.save(member);
@@ -42,6 +50,7 @@ public class MemberServiceImpl implements MemberService{
         Member findMember = memberRepo.findById(member.getSeq()).get();
         //튜플 전체 내용 중에 ID 주소 수정 (Setter)
         findMember.setId(member.getId());
+        findMember.setEmail(member.getEmail());
         //crudRepo의 save 메서드를 통해 데이터 저장
         memberRepo.save(findMember);
 
@@ -60,4 +69,10 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public void deleteMember(Member member) { memberRepo.deleteById(member.getSeq()); }
+
+    @Override
+    @Transactional
+    public List<Member> getMembersContainKeyword(String keyword) {
+        return memberRepo.findByEmailContaining(keyword);
+    }
 }

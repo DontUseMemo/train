@@ -1,6 +1,6 @@
-package com.example.shoppingmall.persistence;
+package com.example.shoppingmall.repository;
 
-import com.example.shoppingmall.model.Board;
+import com.example.shoppingmall.entity.Board;
 import org.springframework.data.repository.CrudRepository;
 
 //CrudRepository를 상속받음

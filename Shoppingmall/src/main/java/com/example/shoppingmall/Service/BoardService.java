@@ -1,6 +1,6 @@
 package com.example.shoppingmall.Service;
 
-import com.example.shoppingmall.model.Board;
+import com.example.shoppingmall.entity.Board;
 
 import java.util.List;
 
