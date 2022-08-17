@@ -73,6 +73,6 @@ public class MemberServiceImpl implements MemberService{
     @Override
     @Transactional
     public List<Member> getMembersContainKeyword(String keyword) {
-        return memberRepo.findByEmailContaining(keyword);
+        return memberRepo.findMembersByEmailContaining(keyword);
     }
 }

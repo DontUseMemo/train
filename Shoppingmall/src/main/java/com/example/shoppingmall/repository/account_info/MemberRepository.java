@@ -27,6 +27,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
     Member findFirstBy(String id_1);
 
-    @Query(value = "select substring(m.email,1,3) as keyword from Member m")
-    List<Member> findByEmailContaining(String keyword);
+    //반환을 Object배열로 반환해서 문제가 발생
+    @Query(value = "select m from Member m where m.email like %:keyword%")
+    List<Member> findMembersByEmailContaining(String keyword);
 }
