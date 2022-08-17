@@ -4,6 +4,8 @@ import com.example.shoppingmall.entity.account_info.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -25,5 +27,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
     Member findFirstBy(String id_1);
 
+    @Query(value = "select substring(m.email,1,3) as keyword from Member m")
     List<Member> findByEmailContaining(String keyword);
 }
