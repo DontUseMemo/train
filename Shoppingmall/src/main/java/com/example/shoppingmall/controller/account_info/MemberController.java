@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -100,6 +101,22 @@ public class MemberController {
     public String resultAccount(String keyword, Model model) {
         model.addAttribute("memberList",
                 memberService.getMembersContainKeyword(keyword));
+        return "/account/resultAccount";
+    }
+
+    @GetMapping("/findEmail")
+    public String findEmail() { return "/account/findEmail"; }
+
+    @PostMapping("/findEmail")
+    public String findEmail(@RequestParam("id") String id,
+                            @RequestParam("password") String pwd,
+                            Model model) {
+        Member membercheck = memberService.CheckMemberWithIdAndPassword(id, pwd);
+        if (membercheck == null) {
+            model.addAttribute("msg","없는 회원입니다.");
+        } else {
+            model.addAttribute("memberList",membercheck);
+        }
         return "/account/resultAccount";
     }
 }

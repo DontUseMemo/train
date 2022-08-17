@@ -12,4 +12,5 @@ public interface MemberService {
     void updateMember(Member member);
     void deleteMember(Member member);
     List<Member> getMembersContainKeyword(String keyword);
+    Member CheckMemberWithIdAndPassword(String id, String password);
 }

@@ -3,9 +3,6 @@ package com.example.shoppingmall.repository.account_info;
 import com.example.shoppingmall.entity.account_info.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -30,4 +27,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     //반환을 Object배열로 반환해서 문제가 발생
     @Query(value = "select m from Member m where m.email like %:keyword%")
     List<Member> findMembersByEmailContaining(String keyword);
+
+    @Query(value = "select m from Member m where m.id = :id and m.password = :password")
+    Member findMemberByIdAndPassword(String id, String password);
 }

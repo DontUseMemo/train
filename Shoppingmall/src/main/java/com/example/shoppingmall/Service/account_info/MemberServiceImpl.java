@@ -71,8 +71,17 @@ public class MemberServiceImpl implements MemberService{
     public void deleteMember(Member member) { memberRepo.deleteById(member.getSeq()); }
 
     @Override
-    @Transactional
     public List<Member> getMembersContainKeyword(String keyword) {
-        return memberRepo.findMembersByEmailContaining(keyword);
+        List<Member> memberList = memberRepo.findMembersByEmailContaining(keyword);
+        for (Member member : memberList) {
+            member.setEmail(member.getEmail().substring(0,3) + "****");
+        }
+        return memberList;
     }
+
+    @Override
+    public Member CheckMemberWithIdAndPassword(String id, String password) {
+        return memberRepo.findMemberByIdAndPassword(id, password);
+    }
+
 }
