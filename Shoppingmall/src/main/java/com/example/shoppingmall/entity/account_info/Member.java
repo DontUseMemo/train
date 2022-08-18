@@ -1,5 +1,6 @@
 package com.example.shoppingmall.entity.account_info;
 
+import com.example.shoppingmall.entity.base.BaseTimeEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -18,7 +19,7 @@ import java.util.Date;
 @Getter
 @ToString
 @Entity
-public class Member {
+public class Member extends BaseTimeEntity {
 
     //SELET [*컬럼명 = 객체의 필드] FROM TABLE_NAME * 객체;
     //CREATE TABLE (
@@ -38,9 +39,11 @@ public class Member {
 
     private String email;
 
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
+//    @Temporal(TemporalType.DATE)
+//    private Date createDate;
+//
+//    @Temporal(TemporalType.DATE)
+//    private Date updateDate;
 
-    @Temporal(TemporalType.DATE)
-    private Date updateDate;
+    //deleteYn
 }

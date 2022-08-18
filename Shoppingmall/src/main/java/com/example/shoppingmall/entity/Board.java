@@ -1,6 +1,7 @@
 package com.example.shoppingmall.entity;
 
 
+import com.example.shoppingmall.entity.base.BaseTimeEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +15,7 @@ import java.util.Date;
 @ToString
 @Entity
 @Setter
-public class Board {
+public class Board extends BaseTimeEntity {
 
     //@Id : PK (primary key) SQL문의 기본키
     //@GeneratedValue 자동생성 속성
@@ -34,10 +35,12 @@ public class Board {
     private String content;
 
     //타입이 날짜
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
+//    @Temporal(TemporalType.DATE)
+//    private Date createDate;
+//
+//    @ColumnDefault("0")
+//    @Column(insertable = false, updatable = false)
+//    private Long cnt;
 
-    @ColumnDefault("0")
-    @Column(insertable = false, updatable = false)
-    private Long cnt;
+    //deleteYn
 }
