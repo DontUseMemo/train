@@ -64,6 +64,8 @@ dependencies {
     implementation 'com.oracle.database.security:oraclepki'
     implementation 'com.oracle.database.security:osdt_core'
     implementation 'com.oracle.database.security:osdt_cert'
+    //220818 암호화 의존성 추가
+//    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 //테스트 모듈에 관한 정보

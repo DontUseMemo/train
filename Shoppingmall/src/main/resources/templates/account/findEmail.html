@@ -6,6 +6,7 @@
 </head>
 <body>
 <form th:action="@{/account/findEmail}" method="post">
+    <input name="seq" type="hidden" th:value="${seq}">
 <table>
     <tr>
         <td>아이디 : </td>

@@ -17,8 +17,25 @@ import java.util.List;
 @Controller
 @RequestMapping(path="/account")
 public class MemberController {
+
+    //MemberController 클래스가 실행되면 MemberService를 불러와서 주입 당하는 것
+    //@Autowired를 사용해서 MemberController는 MemberService를 주입당하겠다고 선언
+    //Springboot는 인식 함 : MemberController가 실행되려면 MemberService가 필요함
+    //장점1 : MemberController 실행되는 시점에서 필요한 객체만 실행할 수 있는 절약성
+    //장점2 : 이미 컨테이너에 있는 객체를 활용하여 최대한 인스턴스(객체)를 최소한으로 사용
+    //아래 @Autowired는 필드 주입 방식
+    //메서드, 생성자, 필드 (객체의 데이터)
+    //필드 주입의 경우에는 2개 이상 주입할 시 어떤 게 먼저 주입당하는지 모름
+    //주입당하는 A와 B가 서로 주입당할 경우에는 어떤 게 먼저 생성할지 모르는 문제
+    //@Setter를 통해 의존성을 주입
+    //주입받으려는 빈의 생성자를 호출하고 없을 경우 컨테이너에 등록하고 객체의 수정자를 호출하여 주입. Final 쓸 수 없음
+    //생성 시점 이후에 setter를 통해 주입할 수 있으므로 결합도가 낮으나,
+    //언제나 수정할 수 있다는 문제와 함께 주입하는 bean의 기능을 쓸 때 주입당하지 않았다면 에러가 생기는 문제
     @Autowired
     private MemberService memberService;
+
+    //일반 자바라면, 실행하는 클래스 (main) 안에서 인스턴스를 만들어서 인스턴스 안에 있는 메서드를 실행 (Static : 불러옴)
+    //실행되는 클래스(main)이 먼저 존재하고 인스턴스로 후에 생성
 
     //(클라이언트가 두 분류)게시판 : 사용자관점,
     //시스템관리관점(회원관리, 게시판관리, 컨텐츠관리) [웹솔루션을 관리하는 오너]
@@ -88,8 +105,8 @@ public class MemberController {
         //createDate
         //updateDate
         System.out.println(member.toString());
-        member.setCreateDate(new Date());
-        member.setUpdateDate(new Date());
+//        member.setCreateDate(new Date());
+//        member.setUpdateDate(new Date());
         memberService.insertMember(member);
         return "Index";
     }
@@ -98,24 +115,25 @@ public class MemberController {
     public String selectAccount() { return "/account/selectAccount"; }
 
     @PostMapping("/selectAccount")
-    public String resultAccount(String keyword, Model model) {
+    public String resultAccount(@RequestParam("keyword") String keyword,
+                                Model model) {
         model.addAttribute("memberList",
                 memberService.getMembersContainKeyword(keyword));
         return "/account/resultAccount";
     }
 
     @GetMapping("/findEmail")
-    public String findEmail() { return "/account/findEmail"; }
+    public String findEmail(Member member, Model model) {
+        model.addAttribute("seq", member.getSeq());
+        return "/account/findEmail"; }
 
     @PostMapping("/findEmail")
-    public String findEmail(@RequestParam("id") String id,
-                            @RequestParam("password") String pwd,
-                            Model model) {
-        Member membercheck = memberService.CheckMemberWithIdAndPassword(id, pwd);
-        if (membercheck == null) {
-            model.addAttribute("msg","없는 회원입니다.");
+    public String findEmailresult(Member member, Model model) {
+        Member checkingMember = memberService.CheckMemberWithIdAndPassword(member);
+        if (checkingMember != null) {
+            model.addAttribute("memberList",checkingMember);
         } else {
-            model.addAttribute("memberList",membercheck);
+            model.addAttribute("msg", "잘못된 아이디나 패스워드입니다.");
         }
         return "/account/resultAccount";
     }

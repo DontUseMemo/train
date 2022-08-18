@@ -9,12 +9,13 @@
 <table border="1">
     <tr th:text="${msg}">
         <th>이메일</th>
+        <th>이메일 찾기</th>
     </tr>
     <tr th:each="member : ${memberList}">
         <td name="email" th:text="${member.email}"></td>
-    </tr>
-    <tr>
-        <a th:href="@{/account/findEmail}"><input type="button" value="이메일 찾기"></a>
+        <td>
+            <a th:href="@{/account/findEmail(seq=${member.seq})}"><input type="button" value="이메일 찾기"></a>
+        </td>
     </tr>
 </table>
 </body>

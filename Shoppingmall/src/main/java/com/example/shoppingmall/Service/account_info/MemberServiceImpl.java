@@ -4,14 +4,22 @@ import com.example.shoppingmall.entity.account_info.Member;
 import com.example.shoppingmall.repository.account_info.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
 @Service
 public class MemberServiceImpl implements MemberService{
-    private final MemberRepository memberRepo;
 
+    //MemberRepository라는 객체를 선언
+    //필드 주입방식은 @Autowired를 통해 컨테이너에서 주입당함 (할당)
+    //final은 변하지 않는 한 개 : MemberServiceImpl는 안심하고 MemberRepository를 사용용
+   private final MemberRepository memberRepo;
+
+    //생성자 주입방식은 아래 생성자에 @Autowired를 붙여서 컨테이너에서 주입 당함
+    //MemberServiceImpl 클래스의 생성자를 선언
+    //매개변수를 MemberRepository로 받아서 위에 있는 필드값 MemberService에 할당
+    //장점 : 객체 생성 시점에서 생성자를 통해서 주입받기 때문에 순서가 명확해짐
     @Autowired
     protected MemberServiceImpl(MemberRepository memberRepo) {this.memberRepo = memberRepo;}
 
@@ -72,7 +80,7 @@ public class MemberServiceImpl implements MemberService{
 
     @Override
     public List<Member> getMembersContainKeyword(String keyword) {
-        List<Member> memberList = memberRepo.findMembersByEmailContaining(keyword);
+        List<Member> memberList = memberRepo.findMembersByEmail(keyword);
         for (Member member : memberList) {
             member.setEmail(member.getEmail().substring(0,3) + "****");
         }
@@ -80,8 +88,18 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public Member CheckMemberWithIdAndPassword(String id, String password) {
-        return memberRepo.findMemberByIdAndPassword(id, password);
+    public Member CheckMemberWithIdAndPassword(Member member) {
+        Member checkmember = memberRepo.findMemberBySeq(member.getSeq());
+        if (checkmember.getId().equals(member.getId())) {
+            if (checkmember.getPassword().equals(member.getPassword())) {
+                return checkmember;
+            }
+            else {
+                return null;
+            }
+        } else {
+            return null;
+        }
     }
 
 }

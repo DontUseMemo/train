@@ -26,8 +26,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     //반환을 Object배열로 반환해서 문제가 발생
     @Query(value = "select m from Member m where m.email like %:keyword%")
-    List<Member> findMembersByEmailContaining(String keyword);
+    List<Member> findMembersByEmail(String keyword);
 
-    @Query(value = "select m from Member m where m.id = :id and m.password = :password")
-    Member findMemberByIdAndPassword(String id, String password);
+    @Query(value = "select m from Member m where m.seq = :seq")
+    Member findMemberBySeq(Long seq);
 }

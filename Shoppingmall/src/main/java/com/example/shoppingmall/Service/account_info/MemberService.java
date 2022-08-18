@@ -1,6 +1,7 @@
 package com.example.shoppingmall.Service.account_info;
 
 import com.example.shoppingmall.entity.account_info.Member;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -12,5 +13,6 @@ public interface MemberService {
     void updateMember(Member member);
     void deleteMember(Member member);
     List<Member> getMembersContainKeyword(String keyword);
-    Member CheckMemberWithIdAndPassword(String id, String password);
+    Member CheckMemberWithIdAndPassword(Member member);
+
 }
