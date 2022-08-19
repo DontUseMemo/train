@@ -118,7 +118,7 @@ public class MemberController {
     public String resultAccount(@RequestParam("keyword") String keyword,
                                 Model model) {
         model.addAttribute("memberList",
-                memberService.getMembersContainKeyword(keyword));
+                memberService.getMembersContainKeywordUseSecurity(keyword));
         return "/account/resultAccount";
     }
 
@@ -129,7 +129,7 @@ public class MemberController {
 
     @PostMapping("/findEmail")
     public String findEmailResult(Member member, Model model) {
-        Member checkingMember = memberService.CheckMemberWithIdAndPassword(member);
+        Member checkingMember = memberService.findEmailByIdAndPassword(member);
         if (checkingMember != null) {
             model.addAttribute("memberList",checkingMember);
         } else {

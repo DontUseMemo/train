@@ -4,7 +4,6 @@ import com.example.shoppingmall.entity.account_info.Member;
 import com.example.shoppingmall.repository.account_info.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import java.util.List;
 
@@ -59,6 +58,7 @@ public class MemberServiceImpl implements MemberService{
         //튜플 전체 내용 중에 ID 주소 수정 (Setter)
         findMember.setId(member.getId());
         findMember.setEmail(member.getEmail());
+        findMember.setPassword(member.getPassword());
         //crudRepo의 save 메서드를 통해 데이터 저장
         memberRepo.save(findMember);
 
@@ -79,7 +79,7 @@ public class MemberServiceImpl implements MemberService{
     public void deleteMember(Member member) { memberRepo.deleteById(member.getSeq()); }
 
     @Override
-    public List<Member> getMembersContainKeyword(String keyword) {
+    public List<Member> getMembersContainKeywordUseSecurity(String keyword) {
         List<Member> memberList = memberRepo.findMembersByEmail(keyword);
         for (Member member : memberList) {
             member.setEmail(member.getEmail().substring(0,3) + "****");
@@ -88,11 +88,11 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public Member CheckMemberWithIdAndPassword(Member member) {
-        Member checkmember = memberRepo.findMemberBySeq(member.getSeq());
-        if (checkmember.getId().equals(member.getId())) {
-            if (checkmember.getPassword().equals(member.getPassword())) {
-                return checkmember;
+    public Member findEmailByIdAndPassword(Member member) {
+        Member checkMember = memberRepo.findMemberBySeq(member.getSeq());
+        if (checkMember.getId().equals(member.getId())) {
+            if (checkMember.getPassword().equals(member.getPassword())) {
+                return checkMember;
             }
             else {
                 return null;
