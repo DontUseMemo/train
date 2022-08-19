@@ -128,7 +128,7 @@ public class MemberController {
         return "/account/findEmail"; }
 
     @PostMapping("/findEmail")
-    public String findEmailresult(Member member, Model model) {
+    public String findEmailResult(Member member, Model model) {
         Member checkingMember = memberService.CheckMemberWithIdAndPassword(member);
         if (checkingMember != null) {
             model.addAttribute("memberList",checkingMember);
