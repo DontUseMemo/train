@@ -70,7 +70,7 @@ public class BoardController {
         return "redirect:getBoardList";
     }
 
-    @GetMapping("/selectAccount")
+    @GetMapping("/selectBoard")
     public String getBoardListFromMember(Member member, Model model) {
         //board.getId()는 클라이언트에서 가져옴
 

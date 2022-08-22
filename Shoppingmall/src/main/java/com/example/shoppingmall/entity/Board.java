@@ -47,9 +47,9 @@ public class Board extends BaseTimeEntity {
 //    @Temporal(TemporalType.DATE)
 //    private Date createDate;
 //
-//    @ColumnDefault("0")
-//    @Column(insertable = false, updatable = false)
-//    private Long cnt;
+    @ColumnDefault("0")
+    @Column(insertable = false, updatable = false)
+    private Long cnt;
 
     //deleteYn
 }
