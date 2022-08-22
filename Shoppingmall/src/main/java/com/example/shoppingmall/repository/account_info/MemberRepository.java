@@ -3,6 +3,7 @@ package com.example.shoppingmall.repository.account_info;
 import com.example.shoppingmall.entity.account_info.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

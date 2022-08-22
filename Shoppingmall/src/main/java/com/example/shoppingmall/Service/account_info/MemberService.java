@@ -18,9 +18,9 @@ public interface MemberService {
     //일부분만 검색하여 사용유저 찾기
     //결과값 : 입력받은 정보(email, id, pw)가 사실유무 확인 후 비밀번호 변경(updateMember에 password)
 
-//    boolean isThisUserHaveEmail(Member member);
-//    boolean isThisUserHaveId(Member member);
-//    boolean isThisUserHavePassword(Member member);
+//    boolean isThisUserHasEmail(Member member);
+//    boolean isThisUserHasId(Member member);
+//    boolean isThisUserHasPassword(Member member);
 
     //민감데이터 (SHA256...)
 

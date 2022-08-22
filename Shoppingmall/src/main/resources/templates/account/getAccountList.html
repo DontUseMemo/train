@@ -14,31 +14,36 @@
             <th>이메일</th>
             <th>가입일자</th>
             <th>수정일자</th>
-            <th>상세보기</th>
+            <th>이메일 보기</th>
         </tr>
         <tr th:each="member : ${accountList}">
             <td th:text="${member.seq}"></td>
-            <td th:text="${member.id}"></td>
+            <td>
+                <a th:href="@{/account/getAccount(seq=${member.seq})}">
+                    <span th:text="${member.id}"></span>
+                </a>
+            </td>
             <td th:text="${member.password}"></td>
             <td th:text="${member.email}"></td>
             <td th:text="${member.createDate}"></td>
             <td th:text="${member.updateDate}"></td>
             <td>
+                <a th:href="@{/account/findEmail(seq=${member.seq})}">
+                    <input type="button" value="찾기">
+                </a>
+            </td>
 <!--                    account/getAccountList에서 getAccount호출할 때-->
 <!--                    기본 시작점이 templates이기 때문에 -->
 <!--                    절대 경로일 경우 templates에서 시작하며, 상대경로이면 getAccountList페이지가 있는 폴더에서 시작-->
 <!--                    /를 앞에 붙일 경우 : 절대경로-->
 <!--                    /를 안 붙일 경우 : 상대경로-->
-                <a th:href="@{/account/getAccount(seq=${member.seq})}">
-                    <input type="button" value="정보조회">
-                </a>
-            </td>
         </tr>
         <tr>
-            <td>
-                <a th:href="@{/account/selectAccount}">
-                    <input type="button" value="회원찾기">
-                </a>
+            <td colspan="7">
+                <form th:action="@{/account/searchAccount}" method="post">
+                    <input type="text" name="keyword">
+                    <input type="submit" value="이메일 검색">
+                </form>
             </td>
         </tr>
     </table>

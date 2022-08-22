@@ -111,15 +111,15 @@ public class MemberController {
         return "Index";
     }
 
-    @GetMapping("/selectAccount")
-    public String selectAccount() { return "/account/selectAccount"; }
+//    @GetMapping("/selectAccount")
+//    public String selectAccount() { return "redirect:/account/getAccountList"; }
 
-    @PostMapping("/selectAccount")
+    @PostMapping("/searchAccount")
     public String resultAccount(@RequestParam("keyword") String keyword,
                                 Model model) {
-        model.addAttribute("memberList",
+        model.addAttribute("accountList",
                 memberService.getMembersContainKeywordUseSecurity(keyword));
-        return "/account/resultAccount";
+        return "/account/getAccountList";
     }
 
     @GetMapping("/findEmail")

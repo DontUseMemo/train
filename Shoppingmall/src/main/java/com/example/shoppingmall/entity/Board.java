@@ -46,7 +46,7 @@ public class Board extends BaseTimeEntity {
     //타입이 날짜
 //    @Temporal(TemporalType.DATE)
 //    private Date createDate;
-//
+
     @ColumnDefault("0")
     @Column(insertable = false, updatable = false)
     private Long cnt;

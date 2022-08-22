@@ -54,11 +54,5 @@ public class Member extends BaseTimeEntity implements Serializable {
 
     private String email;
 
-//    @Temporal(TemporalType.DATE)
-//    private Date createDate;
-//
-//    @Temporal(TemporalType.DATE)
-//    private Date updateDate;
-
     //deleteYn
 }
