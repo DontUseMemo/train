@@ -1,6 +1,7 @@
 package com.example.shoppingmall.Service;
 
 import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.entity.account_info.Member;
 import com.example.shoppingmall.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,5 +47,11 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void deleteBoard(Board board) {
         boardRepo.deleteById(board.getSeq());
+    }
+
+    @Override
+    public List<Board> getEveryBoardByMemberId(Member member) {
+        //repository
+        return boardRepo.findAllByMemberIdEqualsBoardWriter(member.getId());
     }
 }

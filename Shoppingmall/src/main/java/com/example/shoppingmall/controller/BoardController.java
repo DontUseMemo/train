@@ -2,6 +2,7 @@ package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.Service.BoardService;
 import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.entity.account_info.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -67,5 +68,18 @@ public class BoardController {
     public String deleteBoard(Board board) {
         boardService.deleteBoard(board);
         return "redirect:getBoardList";
+    }
+
+    @GetMapping("/selectAccount")
+    public String getBoardListFromMember(Member member, Model model) {
+        //board.getId()는 클라이언트에서 가져옴
+
+        //@Service에 board를 인자값으로 넣고 메서드 실행
+        model.addAttribute("boardList",boardService.getEveryBoardByMemberId(member));
+
+        //회원이 작성한 게시글리스트 리턴(List<Board>) >> HTML에 뿌려주면 끝 (Controller에 가면 메서드가 실행돼서 다른 결과물을 리턴받기 때문)
+        //어느 HTML로 가느냐? = 객체지향은 재활용성이 중요한 요인중 하나
+        //HTML 중 재사용 할만한 것을 먼저 찾고, 그 후에 새로 만들기에 대해 고민
+        return "getBoardList";
     }
 }
