@@ -105,14 +105,9 @@ public class MemberController {
         //createDate
         //updateDate
         System.out.println(member.toString());
-//        member.setCreateDate(new Date());
-//        member.setUpdateDate(new Date());
         memberService.insertMember(member);
         return "Index";
     }
-
-//    @GetMapping("/selectAccount")
-//    public String selectAccount() { return "redirect:/account/getAccountList"; }
 
     @PostMapping("/searchAccount")
     public String resultAccount(@RequestParam("keyword") String keyword,
