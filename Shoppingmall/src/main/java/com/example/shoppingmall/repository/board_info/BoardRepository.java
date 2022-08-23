@@ -1,4 +1,4 @@
-package com.example.shoppingmall.repository;
+package com.example.shoppingmall.repository.board_info;
 
 import com.example.shoppingmall.entity.Board;
 import org.springframework.data.jpa.repository.Query;

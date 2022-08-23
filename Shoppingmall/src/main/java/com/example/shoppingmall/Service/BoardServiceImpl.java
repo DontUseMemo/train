@@ -2,7 +2,7 @@ package com.example.shoppingmall.Service;
 
 import com.example.shoppingmall.entity.Board;
 import com.example.shoppingmall.entity.account_info.Member;
-import com.example.shoppingmall.repository.BoardRepository;
+import com.example.shoppingmall.repository.board_info.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
