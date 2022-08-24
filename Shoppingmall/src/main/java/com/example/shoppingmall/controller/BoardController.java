@@ -1,8 +1,9 @@
 package com.example.shoppingmall.controller;
 
 import com.example.shoppingmall.Service.BoardService;
-import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.entity.board_info.Board;
 import com.example.shoppingmall.entity.account_info.Member;
+import com.example.shoppingmall.entity.board_info.Comments;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -81,5 +82,12 @@ public class BoardController {
         //어느 HTML로 가느냐? = 객체지향은 재활용성이 중요한 요인중 하나
         //HTML 중 재사용 할만한 것을 먼저 찾고, 그 후에 새로 만들기에 대해 고민
         return "getBoardList";
+    }
+
+    //boardSeq 전달하면 전체 comments를 불러오는 controller method
+    @GetMapping("/getCommentsList")
+    public String getCommentsList(Comments comments, Model model) {
+        model.addAttribute("CommentsList",boardService.getAllComments(comments));
+        return "/getCommentsList";
     }
 }

@@ -1,8 +1,10 @@
 package com.example.shoppingmall.Service;
 
-import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.entity.board_info.Board;
 import com.example.shoppingmall.entity.account_info.Member;
+import com.example.shoppingmall.entity.board_info.Comments;
 import com.example.shoppingmall.repository.board_info.BoardRepository;
+import com.example.shoppingmall.repository.board_info.CommentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +14,14 @@ import java.util.List;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-    @Autowired
     private BoardRepository boardRepo;
+    private CommentsRepository commentsRepo;
+
+    @Autowired
+    public BoardServiceImpl(BoardRepository boardRepository, CommentsRepository commentsRepository) {
+        this.boardRepo = boardRepository;
+        this.commentsRepo = commentsRepository;
+    }
 
     //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시
 
@@ -53,5 +61,10 @@ public class BoardServiceImpl implements BoardService {
     public List<Board> getEveryBoardByMemberId(Member member) {
         //repository
         return boardRepo.findAllByMemberIdEqualsBoardWriter(member.getId());
+    }
+
+    @Override
+    public List<Comments> getAllComments(Comments comments) {
+        return commentsRepo.findCommentsByBoardSeq(comments.getBoardSeq());
     }
 }

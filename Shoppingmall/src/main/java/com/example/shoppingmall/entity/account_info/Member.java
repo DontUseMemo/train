@@ -1,6 +1,6 @@
 package com.example.shoppingmall.entity.account_info;
 
-import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.entity.board_info.Board;
 import com.example.shoppingmall.entity.base.BaseTimeEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,6 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 //데이터 베이스에 null값이 들어갔던 이유 : 생성자를 만들지 않아서

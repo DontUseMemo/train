@@ -1,9 +1,9 @@
-package com.example.shoppingmall.entity;
+package com.example.shoppingmall.entity.board_info;
 
 
 import com.example.shoppingmall.entity.account_info.Member;
 import com.example.shoppingmall.entity.base.BaseTimeEntity;
-import com.example.shoppingmall.entity.comment_info.Comment;
+import com.example.shoppingmall.entity.board_info.Comments;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,7 +11,6 @@ import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 //entity: 이 class가 JPA를 통해 데이터베이스 테이블로 쓰겠다고 명시해주는 속성
@@ -56,8 +55,8 @@ public class Board extends BaseTimeEntity {
 
     //코멘트와 양방향 관계 적용
     //게시글이 삭제되면 댓글도 삭제되도록 cascade 적용
-    @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE)
-    private List<Comment> commentList = new ArrayList<>();
+    @OneToMany(mappedBy = "board")
+    private List<Comments> commentsList = new ArrayList<>();
 
     //deleteYn
 }

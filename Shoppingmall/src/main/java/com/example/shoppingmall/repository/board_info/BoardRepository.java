@@ -1,6 +1,6 @@
 package com.example.shoppingmall.repository.board_info;
 
-import com.example.shoppingmall.entity.Board;
+import com.example.shoppingmall.entity.board_info.Board;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
