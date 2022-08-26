@@ -22,7 +22,16 @@ public class Board extends BaseTimeEntity {
 
     //@Id : PK (primary key) SQL문의 기본키
     //@GeneratedValue 자동생성 속성
-    @Id @GeneratedValue
+
+    //영속화
+    //IDENTITY : DB에 필드값을 저장 후에 기본키를 생성함
+    //Entity가 영속상태가 되기 위해서는 식별자가 필수
+    //Sequence : DB(Oracle) Sequence 함수 기능을 활용하여 생성
+    //Table : Seq(시퀀스) 정보를 갖고 있는 테이블을 만들고, seq컬럼값을 저장 뒤에 불러온다.
+    //Table은 여타 위에 전략과 달리 임의의 seq table을 만들기 때문에 table 성능이 좋지 않을 경우 (튜닝x)
+    //속도적인 문제를 야기할 수 있다
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
 
     //@Column은 title 필드값을 컬럼화할 때 길이와 null 입력 가능여부 옵션
