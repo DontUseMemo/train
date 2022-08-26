@@ -90,4 +90,10 @@ public class BoardController {
         model.addAttribute("CommentsList",boardService.getAllComments(comments));
         return "/getCommentsList";
     }
+
+    @PostMapping("/insertComments")
+    public String insertComments(Comments comments) {
+        boardService.insertComments(comments);
+        return "redirect:/getCommentsList";
+    }
 }

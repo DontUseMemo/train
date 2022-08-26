@@ -14,4 +14,5 @@ public interface BoardService {
     void deleteBoard(Board board);
     List<Board> getEveryBoardByMemberId(Member member);
     List<Comments> getAllComments(Comments comments);
+    void insertComments(Comments comments);
 }

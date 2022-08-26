@@ -67,4 +67,9 @@ public class BoardServiceImpl implements BoardService {
     public List<Comments> getAllComments(Comments comments) {
         return commentsRepo.findCommentsByBoardSeq(comments.getBoardSeq());
     }
+
+    @Override
+    public void insertComments(Comments comments) {
+        commentsRepo.save(comments);
+    }
 }
