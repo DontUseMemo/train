@@ -69,6 +69,9 @@ dependencies {
 
     //Gson 라이브러리
     implementation 'com.google.code.gson:gson'
+
+    //셀레늄 추가
+    implementation 'org.seleniumhq.selenium:selenium-java'
 }
 
 //테스트 모듈에 관한 정보

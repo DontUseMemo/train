@@ -3,6 +3,7 @@ package com.example.shoppingmall;
 import com.example.shoppingmall.Service.weatherAPI.WeatherTest;
 import com.example.shoppingmall.entity.account_info.Member;
 import com.example.shoppingmall.repository.account_info.MemberRepository;
+import com.example.shoppingmall.Service.webScraping.Selenium;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class ShoppingmallApplicationTests {
 
+    @Autowired
+    Selenium selenium;
     @Autowired
     WeatherTest weatherTest;
 
@@ -34,6 +37,10 @@ class ShoppingmallApplicationTests {
         memberRepository.save(member);
     }
 
+    @Test
+    void Scraping() {
+        selenium.scraping();
+    }
     @Test
     void contextLoads() {
     }
