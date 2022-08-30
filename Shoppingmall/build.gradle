@@ -66,6 +66,9 @@ dependencies {
     implementation 'com.oracle.database.security:osdt_cert'
     //220818 암호화 의존성 추가
 //    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    //Gson 라이브러리
+    implementation 'com.google.code.gson:gson'
 }
 
 //테스트 모듈에 관한 정보
