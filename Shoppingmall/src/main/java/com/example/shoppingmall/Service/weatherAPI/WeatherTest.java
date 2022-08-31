@@ -22,6 +22,10 @@ public class WeatherTest {
         //2. Jackson : 평균적으로 빠름
         //3. Gson : 간단한 데이터 처리 속도가 빠름
 
+        //json방식은 http 프로토콜을 통해서 데이터 전송규약 (클라이언트와 백엔드 통신)
+        //백엔드와 백엔드 통신도 json방식 > grpc 통신의 등장으로 백엔드 통신은 grpc 변경. (앱통신도 grpc)
+
+        //Gson transfer
         Gson resultGson = new GsonBuilder().setPrettyPrinting().create();
         String element = resultGson.toJson(result);
 
@@ -31,7 +35,7 @@ public class WeatherTest {
     public String readAPI() {
 
         //인증키
-        String Key = "ep78w%2F4dGR0jOQHB9akjcx7dwLZrHkk4CzBbXY1fp485qeexcSv6mzUAlZaX0MB5AnXCWMgY%2FUl2f8yYZ%2BRnVA%3D%3D";
+        String key = "ep78w%2F4dGR0jOQHB9akjcx7dwLZrHkk4CzBbXY1fp485qeexcSv6mzUAlZaX0MB5AnXCWMgY%2FUl2f8yYZ%2BRnVA%3D%3D";
 
         //데이터를 파싱받을 변수
         String brResult = "";
@@ -46,7 +50,7 @@ public class WeatherTest {
 
             //https는 인증서가 필요하므로 http로 데이터 다운
             URL url = new URL("http://apis.data.go.kr/1360000/WthrChartInfoService/getAuxillaryChart?serviceKey=" +
-                    "ep78w%2F4dGR0jOQHB9akjcx7dwLZrHkk4CzBbXY1fp485qeexcSv6mzUAlZaX0MB5AnXCWMgY%2FUl2f8yYZ%2BRnVA%3D%3D&pageNo=1&numOfRows=10&dataType=json&code1=N500&code2=ANL&time=20220828");
+                    key + "&pageNo=1&numOfRows=10&dataType=json&code1=N500&code2=ANL&time=20220828");
             //인증서가 필요한 객체
             HttpURLConnection con =(HttpURLConnection)url.openConnection();
             BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream(), "UTF-8"));
