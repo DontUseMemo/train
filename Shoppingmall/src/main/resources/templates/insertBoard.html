@@ -13,7 +13,7 @@
     <a th:if="${board == null}" class="btn back fl" th:href="@{/getBoardList}"></a>
     <a th:unless="${board == null}" class="btn back fl" th:href="@{/getBoard(seq=${board.seq})}"></a>
 </header>
-<form id="write" th:action="${board == null ? 'insertBoard' : 'updateBoard'}" method="post">
+<form id="write" th:action="${board == null ? 'insertBoard' : 'updateBoard'}" method="post" enctype="multipart/form-data">
     <input th:if="${board} != null" type="hidden" name="seq" th:value="${board.seq}">
     <div class="row">
         <select class="col category">
@@ -30,15 +30,17 @@
             <button class="btn write fl" th:classappend="${board} != null ? 'update'" type="submit" onclick="this.submit()"></button>
         </div>
     </div>
+    <input type="file" name="uploadfile" multiple="multiple"/>
 </form>
 <!--/board/image/는 GetMapping이고, 뒤에 내용은 img주소(파일명)-->
-<form th:action="@{/uploadFile}" method="post" enctype="multipart/form-data">
-    <!--        multipartupload객체를 사용하여 서버에 데이터를 전달-->
-    <!--        input tag의 타입이 file로 지정하여 전달-->
-    <!--        name이 uploadfile로 requestParam에 동일한 매개변수명을 가져야 함-->
-    <input type="file" name="uploadfile" multiple="multiple"/>
-    <input type="submit" value="데이터 전송">
-</form>
+<!--<form th:action="@{/uploadFile}" method="post" enctype="multipart/form-data">-->
+<!--    &lt;!&ndash;        multipartupload객체를 사용하여 서버에 데이터를 전달&ndash;&gt;-->
+<!--    &lt;!&ndash;        input tag의 타입이 file로 지정하여 전달&ndash;&gt;-->
+<!--    &lt;!&ndash;        name이 uploadfile로 requestParam에 동일한 매개변수명을 가져야 함&ndash;&gt;-->
+<!--    <input type="file" name="uploadfile" multiple="multiple"/>-->
+<!--    <input name="writer" type="hidden" th:value="${board?.writer}">-->
+<!--    <input type="submit" value="데이터 전송">-->
+<!--</form>-->
 <img src="/viewImage/84d6e823-b2bf-414c-8fce-b40cbda494cd_uploadfile.PNG">
 </body>
 </html>

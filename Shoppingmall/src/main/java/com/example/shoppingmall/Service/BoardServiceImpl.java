@@ -3,8 +3,10 @@ package com.example.shoppingmall.Service;
 import com.example.shoppingmall.entity.board_info.Board;
 import com.example.shoppingmall.entity.account_info.Member;
 import com.example.shoppingmall.entity.board_info.Comments;
+import com.example.shoppingmall.entity.dataSample.FileUploadEntity;
 import com.example.shoppingmall.repository.board_info.BoardRepository;
 import com.example.shoppingmall.repository.board_info.CommentsRepository;
+import com.example.shoppingmall.repository.board_info.FileUploadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,15 @@ public class BoardServiceImpl implements BoardService {
     private BoardRepository boardRepo;
     private CommentsRepository commentsRepo;
 
+    private final FileUploadRepository fileUploadRepository;
+
     @Autowired
-    public BoardServiceImpl(BoardRepository boardRepository, CommentsRepository commentsRepository) {
+    public BoardServiceImpl(BoardRepository boardRepository,
+                            CommentsRepository commentsRepository,
+                            FileUploadRepository fileUploadRepository) {
         this.boardRepo = boardRepository;
         this.commentsRepo = commentsRepository;
+        this.fileUploadRepository = fileUploadRepository;
     }
 
     //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시
@@ -35,8 +42,8 @@ public class BoardServiceImpl implements BoardService {
     //클라이언트에서 받아온 Board객체의 데이터를 BoardRepository의 상속받은 CrudRepository의 Save메서드를 통해서
     //DB에 저장 (저장하는 SQL문 만들어서 실행)
     @Override
-    public void insertBoard(Board board) {
-        boardRepo.save(board);
+    public Long insertBoard(Board board) {
+        return boardRepo.save(board).getSeq();
     }
 
     @Override
@@ -71,5 +78,15 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void insertComments(Comments comments) {
         commentsRepo.save(comments);
+    }
+
+    @Override
+    public Long insertFileUploadEntity(FileUploadEntity fileUploadEntity) {
+        return fileUploadRepository.save(fileUploadEntity).getId();
+    }
+
+    @Override
+    public FileUploadEntity getFileUploadEntity2(Long board_seq) {
+        return fileUploadRepository.findByBoardSeq(board_seq);
     }
 }
