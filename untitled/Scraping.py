@@ -1,8 +1,10 @@
 import subprocess
+import time
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -34,10 +36,16 @@ chrome_driver = 'D:/chromedriver.exe'
 driver = webdriver.Chrome(chrome_driver, options=chrome_options)
 driver.get("https://www.fragrantica.com/")
 
-# 기다리는 시간은 6초로 고정
-wait = WebDriverWait(driver, 6)
+# # 기다리는 시간은 6초로 고정
+# wait = WebDriverWait(driver, 4)
 
-try:
-    wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gLFyf')))
-finally:
-    driver.quit()
+driver.implicitly_wait(5)
+
+driver.find_element_by_xpath('//*[@id="offCanvasLeft"]/ul/li[6]/a').send_keys(Keys.ENTER)
+
+time.sleep(5)
+driver.close()
+# try:
+#     wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gLFyf')))
+# finally:
+#     driver.quit()
