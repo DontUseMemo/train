@@ -22,6 +22,8 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query(value = "select m from Member m where m.email = :email_1 or m.id = :id_1")
     Member findMemberByEmailOrId(String email_1, String id_1);
 
+    Member findMemberById(String id);
+
     @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
     Member findFirstBy(String id_1);
 
@@ -31,4 +33,7 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @Query(value = "select m from Member m where m.seq = :seq")
     Member findMemberBySeq(Long seq);
+
+    @Query(value = "select * from Member", nativeQuery = true)
+    List<Member> findAllMembers();
 }
