@@ -1,4 +1,6 @@
 # step1.selenium 패키지와 time 모듈 import
+import subprocess
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -10,6 +12,10 @@ from urllib.request import urlretrieve
 
 # step2.검색할 키워드 입력
 query = input('검색할 키워드를 입력하세요: ')
+
+# 크롬창 자동으로 켜지게 설정
+subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+                 r' --remote-debugging-port=9222 --user-data-dir="C:\chrometemp"')
 
 # 크롬 디버깅 모드 진입을 위한 포트번호 설정
 chrome_options = Options()

@@ -35,11 +35,12 @@ chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
 chrome_driver = 'D:/chromedriver.exe'
 driver = webdriver.Chrome(chrome_driver, options=chrome_options)
 driver.get("https://papago.naver.com/")
+time.sleep(3)
 
-# # 기다리는 시간은 6초로 고정
-# wait = WebDriverWait(driver, 4)
-
-driver.implicitly_wait(5)
+# Implicitly wait을 5초로 설정하면 페이지가 로딩되는데 5초까지 기다린다.
+# 만약 페이지 로딩이 2초에 완료되었다면 더 기다리지 않고 다음 코드를 수행한다.
+# 기본 설정은 0초로 되어있고, 한번만 설정하면 driver를 사용하는 모든 코드에 적용된다.
+# driver.implicitly_wait(5)
 
 # 번역할 문장 입력
 driver.find_element_by_css_selector('#sourceEditArea textarea').send_keys('i love koala study')
@@ -47,9 +48,10 @@ time.sleep(3)
 
 # 번역 버튼 클릭
 driver.find_element_by_css_selector('#btnTranslate').click()
-time.sleep(3)
+time.sleep(5)
 
 korean_translate = driver.find_element_by_css_selector('#txtTarget span')
+time.sleep(4)
 
 print(korean_translate)
 
