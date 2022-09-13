@@ -1,5 +1,6 @@
 import subprocess
 
+import cx_Oracle
 import requests as requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -10,9 +11,21 @@ import os
 # 이미지 저장을 위한 라이브러리
 from urllib.request import urlretrieve, urlopen
 
+# 오라클 클라우드 연결
+cx_Oracle.init_oracle_client(lib_dir=r'D:/instantclient_21_6')
+connection = cx_Oracle.connect(user='admin', password='Project123456', dsn='perfumesinfo_low')
+OracleCursor = connection.cursor()
+
+# 데이터베이스에 저장해보기
+# OracleCursor.execute('create table python (name varchar2(20), data varchar2(20))')
+# rows = [(12356)]
+rows = ('dfe', 'dfef')
+OracleCursor.execute("insert into python(name, data) values (:1, :2)", rows)
+connection.commit()
+
 # 크롬창 자동으로 켜지게 설정
-# subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
-#                  r' --remote-debugging-port=9222 --user-data-dir="C:\chrometemp"')
+subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+                 r' --remote-debugging-port=9222 --user-data-dir="C:\chrometemp"')
 
 # 크롬 디버깅 모드 진입을 위한 포트번호 설정
 chrome_options = Options()
@@ -67,4 +80,7 @@ for click_link in links:
         print(ratio)
 
     # 향수 선호도 출력
-    preference = driver.find_elements_by_css_selector('')
+    preferences = driver.find_elements_by_css_selector('#main-content > div.grid-x.grid-margin-x > div.small-12.medium-12.large-9.cell > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div > div:nth-child(1) > div.voting-small-chart-size > div > div')
+    for i in preferences:
+        preference = i.get_attribute('style')
+        print(preference)
