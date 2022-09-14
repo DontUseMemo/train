@@ -78,7 +78,7 @@ public class BoardController {
     @GetMapping("/getBoard")
     public String getBoard(Board board, Model model) {
         FileUploadEntity fileUploadEntity = boardService.getFileUploadEntity2(board.getSeq());
-        String path = "/upload/" + fileUploadEntity.getUuid() + "_" + fileUploadEntity.getOriginalFileName();
+        String path = "/viewImage/" + fileUploadEntity.getUuid() + "_" + fileUploadEntity.getOriginalFileName();
         model.addAttribute("board", boardService.getBoard(board));
         model.addAttribute("boardPrv", boardService.getBoard(board));
         model.addAttribute("imgLoading", path);
