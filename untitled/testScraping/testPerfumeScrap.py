@@ -12,16 +12,16 @@ import os
 from urllib.request import urlretrieve, urlopen
 
 # 오라클 클라우드 연결
-cx_Oracle.init_oracle_client(lib_dir=r'D:/instantclient_21_6')
-connection = cx_Oracle.connect(user='admin', password='Project123456', dsn='perfumesinfo_low')
-OracleCursor = connection.cursor()
+# cx_Oracle.init_oracle_client(lib_dir=r'D:/instantclient_21_6')
+# connection = cx_Oracle.connect(user='admin', password='Project123456', dsn='perfumesinfo_low')
+# OracleCursor = connection.cursor()
 
 # 데이터베이스에 저장해보기
 # OracleCursor.execute('create table python (name varchar2(20), data varchar2(20))')
 # rows = [(12356)]
-rows = ('dfe', 'dfef')
-OracleCursor.execute("insert into python(name, data) values (:1, :2)", rows)
-connection.commit()
+# rows = ('dfe', 'dfef')
+# OracleCursor.execute("insert into python(name, data) values (:1, :2)", rows)
+# connection.commit()
 
 # 크롬창 자동으로 켜지게 설정
 subprocess.Popen(r'C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
@@ -67,7 +67,9 @@ for click_link in links:
     accords = driver.find_elements_by_css_selector('.accord-bar')
     for i in accords:
         accord = i.get_attribute('style')
-        print(i.text + ': ' + accord)
+        accordChangeString = str(accord)
+        accordWidth = accordChangeString.split(" ")
+        print(i.text + ': ' + accordWidth.pop(11))
 
     # 향수 소지 여부 출력
     possession = driver.find_elements_by_css_selector('#rating > div div div div:nth-child(2) span')
