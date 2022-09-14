@@ -40,22 +40,22 @@ driver.get('https://www.fragrantica.com/search/')
 time.sleep(4)
 
 # 향수 리스트 저장
-perfume_link = driver.find_elements_by_css_selector('.card-section > p > a')
+perfume_links = driver.find_elements_by_css_selector('.card-section > p > a')
 links = []
 
 # 선택된 태그에서 링크 저장하기
-for i in perfume_link:
+for i in perfume_links:
     link = i.get_attribute('href')
     links.append(link)
 
-# 상세페이지에서 각 정보 저장하는 반복문
+# 상세페이지에서 각 정보 출력하는 반복문
 for click_link in links:
     # 각 향수 상세정보 링크로 진입
     driver.get(click_link)
     time.sleep(5)
     print('-' * 50 + '\n')
 
-    # 향수 이름 출력하기
+    # 향수 이름 출력
     name = driver.find_element_by_css_selector('#toptop > h1')
     print(name.text)
 
@@ -81,8 +81,25 @@ for click_link in links:
         ratio = j.get_attribute('style')
         print(ratio)
 
-    # 향수 선호도 출력
-    preferences = driver.find_elements_by_css_selector('#main-content > div.grid-x.grid-margin-x > div.small-12.medium-12.large-9.cell > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > div > div:nth-child(1) > div.voting-small-chart-size > div > div')
+    # 향수 선호도와 향수 무드 출력
+    preferences = driver.find_elements_by_css_selector('.cell.small-6 > div div .voting-small-chart-size > div > div')
+    count = 0
     for i in preferences:
         preference = i.get_attribute('style')
-        print(preference)
+        if count < 5:
+            print('선호도: ' + preference)
+        else:
+            print('향수 무드: ' + preference)
+        count += 1
+
+    # 향수 설명글
+    perfume_article = driver.find_element_by_xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[5]/div/p[1]')
+    print(perfume_article.text)
+
+    # 조향사
+    perfumers = driver.find_elements_by_css_selector('#main-content > div.grid-x.grid-margin-x > div.small-12.medium-12'
+                                                     '.large-9.cell > div > div:nth-child(3) > div:nth-child(2) div a')
+    for i in perfumers:
+        print(i.text)
+
+    # 향수 노트

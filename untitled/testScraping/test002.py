@@ -58,7 +58,7 @@ for img in news_thumbnail:
     link_thumbnail.append(img.get_attribute('src'))
 
 # path_folder의 경로는 각자 저장할 폴더의 경로를 적어줄 것(ex.img_download)
-path_folder = 'c:/Users/patbingsu/Desktop/img_save/img'
+path_folder = 'c:/Users/patbingsu/Desktop/img_save/img/'
 
 if not os.path.isdir(path_folder):
     os.mkdir(path_folder)
