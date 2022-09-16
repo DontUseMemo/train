@@ -39,14 +39,23 @@ driver = webdriver.Chrome(chrome_driver, options=chrome_options)
 driver.get('https://www.fragrantica.com/search/')
 time.sleep(4)
 
-# 향수 리스트 저장
+# 향수 상세 리스트 가져오기
 perfume_links = driver.find_elements_by_css_selector('.card-section > p > a')
 links = []
 
-# 선택된 태그에서 링크 저장하기
+# 선택된 태그에서 상세 링크 저장하기
 for i in perfume_links:
     link = i.get_attribute('href')
     links.append(link)
+
+# 향수 제목 리스트 가져오기
+perfume_titles = driver.find_elements_by_css_selector('.cell.card.fr-news-box div:nth-child(2) p a')
+titles = []
+
+# 선택된 태그에서 향수 제목 저장하기
+for i in perfume_titles:
+    titles.append(i.text)
+    print(i.text)
 
 # 상세페이지에서 각 정보 출력하는 반복문
 for click_link in links:
@@ -55,8 +64,8 @@ for click_link in links:
     time.sleep(5)
     print('-' * 50 + '\n')
 
-    # 향수 이름 출력
-    name = driver.find_element_by_css_selector('#toptop > h1')
+    # 향수 젠더 출력
+    name = driver.find_element_by_css_selector('#toptop > h1 small')
     print(name.text)
 
     # 향수 브랜드 출력
@@ -92,14 +101,45 @@ for click_link in links:
             print('향수 무드: ' + preference)
         count += 1
 
-    # 향수 설명글
+    # 향수 설명글 출력
     perfume_article = driver.find_element_by_xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[5]/div/p[1]')
     print(perfume_article.text)
 
-    # 조향사
+    # 조향사 1명 이상 출력
     perfumers = driver.find_elements_by_css_selector('#main-content > div.grid-x.grid-margin-x > div.small-12.medium-12'
                                                      '.large-9.cell > div > div:nth-child(3) > div:nth-child(2) div a')
     for i in perfumers:
         print(i.text)
 
-    # 향수 노트
+    # 향수 노트 세 종류 구분해서 출력
+    # --탑 노트
+    top_note_title = driver.find_element_by_css_selector('#pyramid > div:nth-child(1) > div > '
+                                                         'div:nth-child(2) > h4:nth-child(3)')
+    top_notes = driver.find_elements_by_css_selector('#pyramid > div:nth-child(1) > div > div:nth-child(2) > '
+                                                     'div:nth-child(4) > div div div:nth-child(2)')
+    print(top_note_title.text)
+    for i in top_notes:
+        print(i.text)
+
+    # --미들 노트
+    middle_note_title = driver.find_element_by_css_selector('#pyramid > div:nth-child(1) > div > div:nth-child(2) > '
+                                                            'h4:nth-child(5)')
+    middle_notes = driver.find_elements_by_css_selector('#pyramid > div:nth-child(1) > div > div:nth-child(2) > '
+                                                        'div:nth-child(6) > div div div:nth-child(2)')
+    print(middle_note_title.text)
+    for i in middle_notes:
+        print(i.text)
+
+    # --베이스 노트
+    base_note_title = driver.find_element_by_css_selector('#pyramid > div:nth-child(1) > div > div:nth-child(2) > '
+                                                          'h4:nth-child(7)')
+    base_notes = driver.find_elements_by_css_selector('#pyramid > div:nth-child(1) > div > div:nth-child(2) > '
+                                                      'div:nth-child(8) > div div div:nth-child(2)')
+    print(base_note_title.text)
+    for i in base_notes:
+        print(i.text)
+
+    # 향수 이미지 다운로드(현재는 이미지 다운받는 주소만 출력중)
+    perfume_img = driver.find_element_by_xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[1]/'
+                                               'div[1]/div/div/img').get_attribute('src')
+    print(perfume_img)
