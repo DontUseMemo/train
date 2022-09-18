@@ -11,8 +11,11 @@ import os
 # 이미지 저장을 위한 라이브러리
 from urllib.request import urlretrieve, urlopen
 
+# 파일을 실행하기 전에 윈도우 + R 눌러서 실행창에 해당 주소 입력해서 프래그런티카 진입해서 리캡챠 클릭할 것
+# C:\Program Files (x86)\Google\Chrome\Application\chrome.exe --remote-debugging-port=9222 --user-data-dir="C:/ChromeTEMP"
+
 # 오라클 클라우드 연결
-cx_Oracle.init_oracle_client(lib_dir=r'D:\instantclient_21_6')
+cx_Oracle.init_oracle_client(lib_dir=r'./dataBase/instantclient_21_6')
 connection = cx_Oracle.connect(user='admin', password='1633zhffrpxmQ', dsn='db20220705101934_high')
 oracleCursor = connection.cursor()
 
@@ -37,7 +40,7 @@ driver = webdriver.Chrome(chrome_driver, options=chrome_options)
 
 # 프레그런티카 진입 (시간은 사람인 척 하기 위해 수동으로 조절)
 driver.get('https://www.fragrantica.com/search/')
-time.sleep(4)
+time.sleep(5)
 
 # oracleCursor.execute('drop table perfume_info')
 # oracleCursor.execute('drop table accords')
@@ -100,7 +103,7 @@ for i in perfume_names:
 insert_perfume_info = {}
 insert_accords = {}
 insert_perfume_note = {}
-insert_perfumer_list = []
+insert_perfumer_list = {}
 
 # 상세페이지에서 각 정보 출력하는 반복문
 for click_link in links:
@@ -201,8 +204,8 @@ for click_link in links:
     perfumers = driver.find_elements_by_css_selector('#main-content > div.grid-x.grid-margin-x > div.small-12.medium-12'
                                                      '.large-9.cell > div > div:nth-child(3) > div:nth-child(2) div a')
     for i in perfumers:
-        insert_perfumer_list.append(str(name.text))
-        insert_perfumer_list.append(str(i.text))
+        insert_perfumer_list['perfume_name'] = name.text
+        insert_perfumer_list['perfumer'] = i.text
 
     # 향수 노트 세 종류 구분해서 출력
     # --탑 노트
@@ -241,12 +244,15 @@ for click_link in links:
     print(insert_perfume_note)
 
     # 저장하기
-    oracleCursor.execute('insert into perfumer_list values(:1, :2)', insert_perfumer_list)
+    sql = 'insert into perfumer_list values(:perfume_name, :perfumer)'
+    oracleCursor.prepare(sql)
+    oracleCursor.execute(sql, insert_perfumer_list)
+    connection.commit()
 
     # 향수 이미지 다운로드
     perfume_img_link = driver.find_element_by_xpath('//*[@id="main-content"]/div[1]/div[1]/div/div[2]/div[1]/'
                                                'div[1]/div/div/img').get_attribute('src')
-    # path_folder의 경로는 각자 저장할 폴더의 경로를 적어줄 것(ex.img_download)
+    # path_folder의 경로
     path_folder = './img/'
 
     if not os.path.isdir(path_folder):
@@ -254,6 +260,5 @@ for click_link in links:
 
     urlretrieve(perfume_img_link, path_folder + f'{name.text}.jpg')
 
-oracleCursor.close()
 driver.close()
 driver.quit()
