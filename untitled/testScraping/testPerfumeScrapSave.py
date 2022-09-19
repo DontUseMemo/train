@@ -1,3 +1,4 @@
+import random
 import subprocess
 
 import cx_Oracle
@@ -42,7 +43,7 @@ time.sleep(5)
 # connection.commit()
 #
 #
-# # 데이테베이스 테이블 생성
+# # 데이테베이스 테이블 생성(속성 순서 변하면 안 됨)
 # # --향수 테이블
 # oracleCursor.execute('create table perfume_info(perfume_name varchar2(70), gender varchar2(18), brand varchar2(40), '
 #                      'have varchar2(9), had varchar2(9), want varchar2(9), love varchar2(9), likes varchar2(9), '
@@ -110,7 +111,7 @@ for click_link in current_links:
 
     # 각 향수 상세정보 링크로 진입
     driver.get(click_link)
-    time.sleep(10)
+    time.sleep(random.randint(9, 13))
     print('-' * 50 + '\n')
 
     # 향수 이름 저장
